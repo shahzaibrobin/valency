@@ -101,10 +101,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .nav-links{display:none;gap:26px}
 .nav-links a{font-size:.86rem;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
-.nav-cta{font-family:var(--f-display);font-size:.8rem;font-weight:700;color:#0A0A0B;background:var(--coral);
+.nav-cta{margin-left:28px;font-family:var(--f-display);font-size:.8rem;font-weight:700;color:#0A0A0B;background:var(--coral);
   padding:0 20px;height:44px;display:inline-flex;align-items:center;border-radius:40px;text-decoration:none;white-space:nowrap}
-.logo{color:var(--head);font-family:var(--f-display);font-weight:700;font-size:1.1rem;letter-spacing:-.02em;text-decoration:none}
-.logo span{color:var(--coral)}
+.logo{display:flex;align-items:center;text-decoration:none;flex:0 0 auto;margin-right:auto}
+/* logo left, burger and the button together on the right */
+.burger{margin-left:14px}
+.logo img{height:30px;width:auto;display:block}
+@media(min-width:900px){.logo img{height:34px}}
 @media(min-width:900px){.nav-links{display:flex}}
 
 /* hero */
@@ -219,7 +222,8 @@ footer{background:transparent;border-top:1px solid var(--hairline);padding:62px 
 .fcol a{font-size:.9rem;color:var(--muted);text-decoration:none;padding:6px 0;transition:color .25s}
 .fcol a:hover{color:var(--teal)}
 .fbrand{max-width:320px}
-.fname{color:var(--head);font-family:var(--f-display);font-weight:700;font-size:clamp(1.4rem,4vw,1.9rem);letter-spacing:-.02em;margin-bottom:8px}
+.fname{display:block;margin-bottom:14px}
+.fname img{height:42px;width:auto;display:block}
 .ftag{font-size:.92rem;color:var(--coral);margin-bottom:24px}
 .social{display:flex;gap:12px}
 .social a{width:44px;height:44px;border-radius:50%;border:1px solid var(--hairline);display:grid;
@@ -408,6 +412,10 @@ body.locked{overflow:hidden}
 
 <nav>
   <div class="wrap">
+    <a class="logo" href="#top" aria-label="Valency, home">
+      <img src="assets/brand/valency-logo.webp"
+        srcset="assets/brand/valency-logo.webp 1x, assets/brand/valency-logo@2x.webp 2x"
+        width="547" height="120" alt="Valency" fetchpriority="high" decoding="async"></a>
     <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     <!-- Page style nav. These point at the matching section on this page for now,
          so the preview works. Swap each href to /services/ /work/ /about/ /contact/
@@ -801,7 +809,9 @@ body.locked{overflow:hidden}
     <div class="fgrid">
 
       <div class="fcol fbrand">
-        <div class="fname">Valency</div>
+        <div class="fname"><img src="assets/brand/valency-logo.webp"
+          srcset="assets/brand/valency-logo.webp 1x, assets/brand/valency-logo@2x.webp 2x"
+          width="547" height="120" alt="Valency" loading="lazy" decoding="async"></div>
         <div class="ftag">Where Creativity Creates Value.</div>
         <div class="social">
           <a href="[PLACEHOLDER]" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
