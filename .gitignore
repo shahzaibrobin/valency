@@ -1,0 +1,7 @@
+# local working files, never published
+*-BACKUP-*.html
+choose-*.html
+PROJECT-STATE.md
+Thumbs.db
+desktop.ini
+.DS_Store
