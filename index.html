@@ -174,6 +174,23 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .vframe .ph{text-align:center;padding:22px;color:var(--teal);font-family:var(--f-display);font-size:.72rem;
   font-weight:700;letter-spacing:1.8px;text-transform:uppercase;line-height:1.9}
 .vframe .ph i{display:block;font-size:2.2rem;margin-bottom:12px;color:var(--coral)}
+/* leadership: two people side by side */
+.team{display:grid;gap:30px;grid-template-columns:1fr;margin-top:44px}
+@media(min-width:820px){.team{grid-template-columns:1fr 1fr;gap:38px}}
+.person{display:flex;flex-direction:column;align-items:flex-start}
+.pphoto{width:100%;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--hairline);background:linear-gradient(140deg,#15171C,#0C0D10);margin-bottom:22px}
+.pphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.pphoto .ph{width:100%;height:100%}
+.person h3{font-family:var(--f-display);font-size:1.35rem;font-weight:600;letter-spacing:-.02em;
+  color:var(--head);margin-bottom:5px}
+.prole{font-size:.74rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--coral);margin-bottom:15px;display:block}
+.person p{color:var(--muted);font-size:.95rem}
+.ptags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0}
+.ptags li{font-size:.74rem;color:var(--muted);border:1px solid var(--hairline);
+  border-radius:30px;padding:6px 13px}
+
 /* Stacked client circles. They overlap far enough that only a sliver of each
    one behind shows, the way a row of profile photos reads, and each sits on a
    brand coloured disc because the logos are white and were disappearing into
@@ -451,7 +468,6 @@ h2 .caret{display:inline-block;width:3px;height:1em;margin-left:3px;vertical-ali
 .js h2.tw.typing .caret{opacity:1;animation:blink .8s steps(1,end) infinite}
 @keyframes blink{50%{opacity:0}}
 .sec h2{position:relative;text-align:center}
-#about h2{text-align:left}
 .rv{transition:opacity .8s var(--e-out),transform .95s var(--e-back)}
 .js .rv{opacity:0;transform:translateY(56px) scale(.97)}
 .js .rv.in{opacity:1;transform:none}
@@ -891,15 +907,39 @@ body.locked{overflow:hidden}
 <!-- ===== ABOUT / FOUNDER ===== -->
 <section class="sec sec--grad" id="about">
   <div class="wrap">
-    <div class="grid g2 rv" style="gap:38px;align-items:center">
-      <div class="vframe" style="aspect-ratio:1/1"><div class="ph"><i class="fa-solid fa-user"></i>[PLACEHOLDER]<br>Founder photo</div></div>
-      <div>
-        <div class="eyebrow">Who you are dealing with</div>
-        <h2>Meet <span class="coral">Robin Joseph</span></h2>
+    <div class="rv intro" style="max-width:700px">
+      <div class="eyebrow">Who you are dealing with</div>
+      <h2>The two people <span class="coral">behind the work</span>.</h2>
+      <p class="lead">No account manager in between. You talk to the people who decide what gets made and who makes it.</p>
+    </div>
+
+    <div class="team rv">
+      <article class="person">
+        <div class="pphoto"><div class="ph"><i class="fa-solid fa-user" aria-hidden="true"></i>[PLACEHOLDER]<br>Founder photo</div></div>
+        <h3>Robin Joseph</h3>
+        <span class="prole">Founder and CEO</span>
         <p>[PLACEHOLDER: founder story. The questionnaire says this must be the real motivation behind starting Voice to Value and the specific experiences that led to the rebrand into Valency. It should be confirmed with the client, not written for them.]</p>
-        <p>[PLACEHOLDER: one line on the team, roles and where you are based.]</p>
-        <a href="#contact" class="btn" style="margin-top:18px">Talk to us about your brand</a>
-      </div>
+      </article>
+
+      <article class="person">
+        <div class="pphoto">
+          <img src="assets/team/timmer-haroon.webp"
+            srcset="assets/team/timmer-haroon.webp 1x, assets/team/timmer-haroon@2x.webp 2x"
+            width="520" height="520" alt="Timmer Haroon, Co-Founder" loading="lazy" decoding="async">
+        </div>
+        <h3>Timmer Haroon</h3>
+        <span class="prole">Co-Founder</span>
+        <p>Owns growth and the client relationship end to end, from the first conversation through to the partnerships that come out of it. Directs AI video production and the social output, and runs the team's workflow so quality does not depend on who happens to be free that week.</p>
+        <ul class="ptags">
+          <li>Growth and partnerships</li>
+          <li>Creative direction</li>
+          <li>Delivery and quality</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="rv" style="text-align:center;margin-top:40px">
+      <a href="#contact" class="btn">Talk to us about your brand</a>
     </div>
   </div>
 </section>
