@@ -138,16 +138,26 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
   line-height:1.3;transition:color .2s,background .2s}
 .dd a:hover,.dd a:focus-visible{color:#fff;background:rgba(255,107,90,.13)}
 /* the same six inside the mobile drawer */
-.drawer .sub{display:flex;flex-direction:column;margin:2px 0 10px 14px;
-  border-left:1px solid var(--hairline);padding-left:14px}
+/* closed until tapped. The height is measured in JS and set in pixels, which
+   animates exactly without a guessed max-height that would clip or lag. */
+.drawer .sub{overflow:hidden;height:0;transition:height .34s var(--e-out)}
+.drawer .subin{display:flex;flex-direction:column;
+  margin:6px 0 12px 14px;border-left:1px solid var(--hairline);padding-left:14px}
+.drawer .dltog{width:100%;display:flex;align-items:center;justify-content:space-between;
+  background:none;border:0;border-bottom:1px solid var(--hairline);cursor:pointer;text-align:left}
+.drawer .dltog i{font-size:.66rem;color:var(--coral);transition:transform .3s var(--e-out)}
+.drawer .dltog[aria-expanded="true"] i{transform:rotate(180deg)}
 .drawer .sub a{font-family:var(--f-body);font-size:.92rem;font-weight:400;color:var(--muted);
   padding:8px 0;text-decoration:none}
 .drawer .sub a:hover{color:var(--coral-2)}
 @media(max-width:899px){
-  nav .wrap{padding-top:11px;padding-bottom:11px}
+  /* burger left, logo dead centre, button right. The logo is taken out of the
+     flow so uneven burger and button widths cannot shift it off centre. */
+  nav .wrap{position:relative;padding-top:11px;padding-bottom:11px}
+  .logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin-right:0}
   .logo img{height:26px}
-  .nav-cta{margin-left:10px;font-size:.74rem;padding:0 15px;height:40px}
-  .burger{margin-left:6px;width:40px;height:40px}
+  .burger{margin-left:0;order:-1}
+  .nav-cta{margin-left:auto;font-size:.74rem;padding:0 15px;height:40px}
 }
 @media(max-width:360px){
   .logo img{height:23px}
@@ -434,9 +444,10 @@ h2 .caret{display:inline-block;width:3px;height:1em;margin-left:3px;vertical-ali
   background:linear-gradient(160deg,#15171C 0%,#0A0A0B 100%);border-left:1px solid var(--hairline);
   padding:84px 26px 32px;transform:translateX(102%);transition:transform .4s var(--e-out);display:flex;flex-direction:column}
 .drawer nav{display:flex;flex-direction:column;position:static;background:none;border:0}
-.drawer a.dl{font-family:var(--f-display);font-weight:600;font-size:1.06rem;color:var(--ink);text-decoration:none;
+.drawer a.dl,.drawer .dltog{font-family:var(--f-display);font-weight:600;font-size:1.06rem;color:var(--ink);text-decoration:none;
   padding:15px 0;border-bottom:1px solid var(--hairline);transition:color .25s,padding-left .25s}
 .drawer a.dl:hover{color:var(--teal);padding-left:7px}
+.drawer .dltog:hover{color:var(--teal)}
 .drawer-close{position:absolute;top:22px;right:20px;width:44px;height:44px;background:none;border:0;color:var(--muted);font-size:1.3rem;cursor:pointer}
 .drawer-close:hover{color:var(--coral)}
 body.locked{overflow:hidden}
@@ -496,15 +507,16 @@ body.locked{overflow:hidden}
   <button class="drawer-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
   <nav aria-label="Mobile">
     <a class="dl" href="#top">Home</a>
-    <a class="dl" href="#services">Services</a>
-    <div class="sub">
+    <button type="button" class="dl dltog" aria-expanded="false" aria-controls="drawersvc">
+      Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+    <div class="sub" id="drawersvc"><div class="subin">
       <a href="#services">AI Video Creation</a>
       <a href="#services">Web Design &amp; Development</a>
       <a href="#services">Social Media Management</a>
       <a href="#services">Email Marketing</a>
       <a href="#services">Meta &amp; Google Ads</a>
       <a href="#services">SEO</a>
-    </div>
+    </div></div>
     <a class="dl" href="#about">About</a><a class="dl" href="#contact">Contact</a>
   </nav>
   <a href="#contact" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
@@ -1189,6 +1201,31 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
   document.addEventListener('visibilitychange',()=>{ onscreen=!document.hidden; arm(); });
 
   arm();
+})();
+
+/* drawer: Services opens on tap, same as the desktop dropdown */
+(function(){
+  const t=document.querySelector('.drawer .dltog'); if(!t) return;
+  const sub=document.getElementById(t.getAttribute('aria-controls'));
+  const inn=sub.querySelector('.subin');
+  const set=o=>{
+    t.setAttribute('aria-expanded', o?'true':'false');
+    sub.classList.toggle('open',o);
+    if(o){
+      sub.style.height = inn.offsetHeight + 'px';
+      // let it settle to auto so a rotated phone cannot clip it
+      clearTimeout(sub._t); sub._t=setTimeout(()=>{ if(sub.classList.contains('open')) sub.style.height='auto'; },360);
+    } else {
+      clearTimeout(sub._t);
+      sub.style.height = inn.offsetHeight + 'px';
+      void sub.offsetHeight;
+      sub.style.height = '0px';
+    }
+  };
+  t.addEventListener('click',()=>set(t.getAttribute('aria-expanded')!=='true'));
+  // closing the drawer resets it, so it is shut again next time it opens
+  const burger=document.querySelector('.burger');
+  if(burger) burger.addEventListener('click',()=>{ if(t.getAttribute('aria-expanded')==='true') set(false); });
 })();
 
 /* which nav item is white: whichever section you are actually looking at */
