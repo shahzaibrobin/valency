@@ -419,6 +419,10 @@ footer{background:#070708;border-top:1px solid var(--hairline);padding:62px 0 28
   font-size:.72rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;line-height:1.9}
 .vbanner .ph i{display:block;font-size:2.4rem;margin-bottom:12px;color:var(--coral)}
 @media(min-width:900px){.vbanner{height:62vh;min-height:420px}}
+/* The film is 16:9. On a phone a 46vh box is nearly square, so cover was
+   cutting roughly 40% off each side and taking the title cards with it.
+   Matching the box to the footage shows the whole frame with no bars. */
+@media(max-width:899px){.vbanner{height:auto;min-height:0;aspect-ratio:16/9}}
 /* hero now sits under the banner, so it no longer needs the full viewport */
 #top{min-height:0;display:block;padding-top:54px;padding-bottom:var(--sec-y)}
 @media(min-width:900px){#top{padding-top:72px}}
