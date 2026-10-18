@@ -1531,7 +1531,6 @@ function fluid(canvas, mode, cfg){
   const hints=()=>{
     const cores=navigator.hardwareConcurrency||4, mem=navigator.deviceMemory||4;
     const px=innerWidth*innerHeight*(devicePixelRatio||1);
-    if(innerWidth<900) return 2;                  // phones start mid
     if(cores<=2||mem<=2) return 4;
     if(cores<=4||mem<=4) return 3;
     if(px>2600000) return 1;                      // big or hidpi screen, more pixels to push
@@ -1717,10 +1716,11 @@ function fluid(canvas, mode, cfg){
   }
   const kick=()=>{ if(!running){running=true;last=performance.now();requestAnimationFrame(step);} idle=0; };
 
-  addEventListener('pointermove',e=>{
-    if(e.pointerType==='touch') return;      // touch is handled below, do not splat twice
+  /* ONE handler. Desktop pointer and phone touch both call this with a
+     position, so the behaviour is identical: same force multiplier, same
+     travel accumulation, same splat. Nothing is special cased for mobile. */
+  function move(px,py){
     const w=innerWidth, h=innerHeight;
-    const px=e.clientX, py=e.clientY;
     if(!pt.init){pt.px=px;pt.py=py;pt.init=true;}
     const mx=px-pt.px, my=py-pt.py;
     const dx=5*mx, dy=5*-my;                      // their exact force multiplier
@@ -1729,33 +1729,29 @@ function fluid(canvas, mode, cfg){
     const col=MODES[mode](pt.travel, cfg.dye);
     if(dx||dy) splat(px/w, 1-py/h, dx, dy, col);
     kick();
-  },{passive:true});
-  document.addEventListener('pointerleave',()=>{pt.init=false;});
+  }
 
-  /* A phone has no cursor. Touch events carry the finger position, and unlike
-     pointermove they keep firing while the page scrolls, so the dye lands under
-     the finger and follows it, exactly as it follows the cursor on desktop. */
-  let tp=null;
+  addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch') return;            // touch comes through below
+    move(e.clientX, e.clientY);
+  },{passive:true});
+
+  /* Touch events are used rather than pointermove because the browser stops
+     sending pointermove once a drag turns into a scroll. They feed the same
+     function, so a finger behaves exactly as a cursor does. */
   addEventListener('touchstart',e=>{
     const t=e.touches[0]; if(!t) return;
-    tp={x:t.clientX,y:t.clientY};
-    // no force, so a tap just sets colour down where you touched
-    splat(t.clientX/innerWidth, 1-t.clientY/innerHeight, 0, 0, MODES[mode](pt.travel, cfg.dye));
-    kick();
+    pt.init=false;                                 // start fresh, as entering the window does
+    move(t.clientX, t.clientY);
   },{passive:true});
   addEventListener('touchmove',e=>{
     const t=e.touches[0]; if(!t) return;
-    if(!tp){ tp={x:t.clientX,y:t.clientY}; return; }
-    const w=innerWidth, h=innerHeight;
-    const mx=t.clientX-tp.x, my=t.clientY-tp.y;
-    tp={x:t.clientX,y:t.clientY};
-    if(!mx && !my) return;
-    pt.travel = (pt.travel||0) + Math.hypot(mx,my)/w;
-    splat(t.clientX/w, 1-t.clientY/h, 5*mx, 5*-my, MODES[mode](pt.travel, cfg.dye));
-    kick();
+    move(t.clientX, t.clientY);
   },{passive:true});
-  addEventListener('touchend',()=>{tp=null;},{passive:true});
-  addEventListener('touchcancel',()=>{tp=null;},{passive:true});
+  const drop=()=>{pt.init=false;};
+  addEventListener('touchend',drop,{passive:true});
+  addEventListener('touchcancel',drop,{passive:true});
+  document.addEventListener('pointerleave',drop);
 
   /* the loop sleeps when idle, so a window resize while asleep would leave the
      canvas at its old size until the next pointer move */
