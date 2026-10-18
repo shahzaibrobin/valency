@@ -96,7 +96,8 @@ p{color:var(--muted);margin-bottom:14px} p:last-child{margin-bottom:0}
 .intro .lead{margin-inline:auto}
 
 /* nav */
-nav{position:sticky;top:0;z-index:60;background:rgba(10,10,11,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--hairline)}
+/* scrolls away with the page, it does not follow you down */
+nav{position:relative;z-index:60;background:rgba(10,10,11,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--hairline)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:15px;padding-bottom:15px}
 .nav-links{display:none;gap:26px}
 .nav-links a{font-size:.86rem;color:var(--muted);text-decoration:none;transition:color .2s}
