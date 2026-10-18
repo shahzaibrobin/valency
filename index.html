@@ -174,24 +174,39 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .vframe .ph{text-align:center;padding:22px;color:var(--teal);font-family:var(--f-display);font-size:.72rem;
   font-weight:700;letter-spacing:1.8px;text-transform:uppercase;line-height:1.9}
 .vframe .ph i{display:block;font-size:2.2rem;margin-bottom:12px;color:var(--coral)}
-/* stacked client circles, the way overlapping profile photos read */
-.trust{display:flex;align-items:center;gap:13px}
+/* Stacked client circles. They overlap far enough that only a sliver of each
+   one behind shows, the way a row of profile photos reads, and each sits on a
+   brand coloured disc because the logos are white and were disappearing into
+   the black. Text on the left, stack on the right. */
+.trust{display:flex;align-items:center;gap:14px}
 .avatars{display:flex;align-items:center}
-.av{width:38px;height:38px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
-  background:#15171B;border:2px solid #0A0A0B;box-shadow:0 0 0 1px rgba(255,255,255,.09);
-  margin-left:-11px;overflow:hidden;transition:transform .25s var(--e-out)}
+.av{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  border:2px solid #0A0A0B;margin-left:-17px;overflow:hidden;position:relative;
+  transition:margin-left .28s var(--e-out)}
 .av:first-child{margin-left:0}
-.av img{width:28px;height:auto;max-height:23px;object-fit:contain;opacity:1}
-.av.more{font-family:var(--f-display);font-size:.68rem;font-weight:600;color:var(--coral);
-  background:rgba(255,107,90,.14);box-shadow:0 0 0 1px rgba(255,107,90,.3)}
-.trust:hover .av{transform:translateY(-2px)}
-.trusttext{display:flex;flex-direction:column;gap:3px;text-align:left}
+/* each tucks behind the one before it, and the count sits on top at the end */
+.av.a1{z-index:5} .av.a2{z-index:4} .av.a3{z-index:3} .av.a4{z-index:2} .av.a5{z-index:1}
+.av.more{z-index:6}
+.av.a1{background:linear-gradient(145deg,#FF6B5A,#C9453A)}
+.av.a2{background:linear-gradient(145deg,#14B8A6,#0C7D71)}
+.av.a3{background:linear-gradient(145deg,#FF8A7B,#E0574A)}
+.av.a4{background:linear-gradient(145deg,#2DD4BF,#108C7F)}
+.av.a5{background:linear-gradient(145deg,#FF6B5A,#14B8A6)}
+.av img{width:27px;height:auto;max-height:22px;object-fit:contain;
+  filter:brightness(0) invert(1);opacity:.96}
+.av.more{background:#15171B;box-shadow:inset 0 0 0 1px rgba(255,107,90,.45);
+  font-family:var(--f-display);font-size:.72rem;font-weight:700;color:var(--coral)}
+/* spread apart on hover so each one can be seen */
+.trust:hover .av{margin-left:-7px}
+.trust:hover .av:first-child{margin-left:0}
+.trusttext{display:flex;flex-direction:column;gap:4px;align-items:flex-end;text-align:right}
 .hero-proof .stars{display:flex;gap:2.5px;font-size:.74rem;line-height:1}
 .hero-proof .stars i{color:var(--coral)}
-.trusttext span{font-size:.78rem;color:var(--muted);line-height:1}
+.trusttext span{font-size:.78rem;color:var(--muted);line-height:1;white-space:nowrap}
 @media(max-width:600px){
-  .av{width:33px;height:33px;margin-left:-10px}
-  .av img{width:25px;max-height:20px}
+  .trust{gap:11px}
+  .av{width:35px;height:35px;margin-left:-15px}
+  .av img{width:24px;max-height:19px}
 }
 .hero-proof .pill{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:8px}
 .hero-proof i{color:var(--teal)}
@@ -206,8 +221,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
           mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
 .mq-row{display:flex;gap:80px;width:max-content;align-items:center}
 .mq-row+.mq-row{margin-top:26px}
-.mq-row.ltr{animation:mqLeft 34s linear infinite}
-.mq-row.rtl{animation:mqRight 41s linear infinite}
+.mq-row.ltr{animation:mqLeft 28s linear infinite}
+.mq-row.rtl{animation:mqRight 34s linear infinite}
 @keyframes mqLeft{from{transform:translateX(0)}to{transform:translateX(-25%)}}
 @keyframes mqRight{from{transform:translateX(-25%)}to{transform:translateX(0)}}
 .mq-row img{height:34px;width:auto;flex:0 0 auto;opacity:.62;
@@ -219,7 +234,17 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
   transition:opacity .3s var(--e-out),transform .3s var(--e-out)}
 .mq-row .wm:hover{opacity:1;transform:scale(1.06)}
 @media(max-width:700px){
-  .mq-row{gap:50px} .mq-row img{height:28px} .mq-row .wm{font-size:1.1rem;line-height:28px}
+  /* one row on a phone. Two rows at this width showed barely two logos each
+     and the opposing directions read as flicker rather than motion. */
+  .mq-row.rtl{display:none}
+  .mq-row+.mq-row{margin-top:0}
+  .mq-row{gap:38px}
+  .mq-row img{height:24px}
+  .mq-row .wm{font-size:.98rem;line-height:24px}
+  .mq-row.ltr{animation-duration:22s}
+  .marquee{padding:20px 0;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 }
 
 /* problem list */
@@ -561,17 +586,17 @@ body.locked{overflow:hidden}
       <div class="fud"><i class="fa-solid fa-circle-check"></i>Tell us your goals and we come back with a plan, not a template.</div>
       <div class="hero-proof">
         <div class="trust">
-          <div class="avatars" aria-hidden="true">
-          <span class="av"><img src="assets/logos/brewchi.webp" alt="Brewchi" loading="lazy" decoding="async"></span>
-          <span class="av"><img src="assets/logos/erhan.webp" alt="Erhan" loading="lazy" decoding="async"></span>
-          <span class="av"><img src="assets/logos/midas.webp" alt="Midas Barbers" loading="lazy" decoding="async"></span>
-          <span class="av"><img src="assets/logos/lumi-skin.webp" alt="Lumi Skin" loading="lazy" decoding="async"></span>
-          <span class="av"><img src="assets/logos/yogi.webp" alt="Yogi" loading="lazy" decoding="async"></span>
-            <span class="av more">+4</span>
-          </div>
           <div class="trusttext">
-            <div class="stars" aria-hidden="true"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            <div class="stars" aria-hidden="true"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             <span>Trusted by 9 brands</span>
+          </div>
+          <div class="avatars" aria-hidden="true">
+            <span class="av a1"><img src="assets/logos/brewchi.webp" alt="Brewchi" loading="lazy" decoding="async"></span>
+            <span class="av a2"><img src="assets/logos/erhan.webp" alt="Erhan" loading="lazy" decoding="async"></span>
+            <span class="av a3"><img src="assets/logos/midas.webp" alt="Midas Barbers" loading="lazy" decoding="async"></span>
+            <span class="av a4"><img src="assets/logos/lumi-skin.webp" alt="Lumi Skin" loading="lazy" decoding="async"></span>
+            <span class="av a5"><img src="assets/logos/yogi.webp" alt="Yogi" loading="lazy" decoding="async"></span>
+            <span class="av more">9+</span>
           </div>
         </div>
         <span class="pill"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Video &middot; Social &middot; Email &middot; Web</span>
@@ -1402,8 +1427,8 @@ function fluid(canvas, mode, cfg){
 
   const P={
     clear: prog(VS,FS(`uniform sampler2D uTexture;uniform float value;void main(){gl_FragColor=value*texture2D(uTexture,vUv);}`)),
-    splat: prog(VS,FS(`uniform sampler2D uTarget;uniform float aspectRatio;uniform vec3 color;uniform vec2 point;uniform float radius;
-      void main(){vec2 p=vUv-point.xy;p.x*=aspectRatio;vec3 s=exp(-dot(p,p)/radius)*color;
+    splat: prog(VS,FS(`uniform sampler2D uTarget;uniform vec2 aspect;uniform vec3 color;uniform vec2 point;uniform float radius;
+      void main(){vec2 p=(vUv-point.xy)*aspect;vec3 s=exp(-dot(p,p)/radius)*color;
       gl_FragColor=vec4(texture2D(uTarget,vUv).xyz+s,1.);}`)),
     adv: prog(VS,FS(`uniform sampler2D uVelocity;uniform sampler2D uSource;uniform vec2 texelSize;uniform float dt;uniform float dissipation;
       void main(){vec2 c=vUv-dt*texture2D(uVelocity,vUv).xy*texelSize;
@@ -1611,7 +1636,11 @@ function fluid(canvas, mode, cfg){
   function splat(x,y,dx,dy,col){
     gl.useProgram(P.splat.p);
     gl.uniform1i(P.splat.u.uTarget, vel.read.attach(0));
-    gl.uniform1f(P.splat.u.aspectRatio, canvas.width/canvas.height);
+    /* scale the LONGER side only, so the blob stays round whichever way the
+       screen is turned. Scaling x by w/h squashed it into a vertical smear on
+       a portrait phone, which is why touch never looked like the desktop. */
+    const aw=canvas.width, ah=canvas.height;
+    gl.uniform2f(P.splat.u.aspect, Math.max(1,aw/ah), Math.max(1,ah/aw));
     gl.uniform2f(P.splat.u.point,x,y);
     gl.uniform3f(P.splat.u.color,dx,dy,0);
     gl.uniform1f(P.splat.u.radius, cfg.splat/100);
