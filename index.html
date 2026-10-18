@@ -107,6 +107,34 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .logo{display:flex;align-items:center;text-decoration:none;flex:0 0 auto;margin-right:auto}
 /* logo left, burger and the button together on the right */
 .burger{margin-left:14px}
+/* links sit dead centre of the bar whatever the logo or button widths are */
+@media(min-width:900px){
+  nav .wrap{position:relative}
+  .nav-links{position:absolute;left:50%;transform:translateX(-50%)}
+}
+/* services dropdown */
+.ddwrap{position:relative}
+.ddbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;cursor:pointer;
+  font-family:var(--f-body);font-size:.86rem;color:var(--muted);padding:0;transition:color .2s}
+.ddbtn:hover,.ddwrap.open .ddbtn{color:var(--teal)}
+.ddbtn i{font-size:.6rem;transition:transform .25s var(--e-out)}
+.ddwrap.open .ddbtn i{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(-6px);
+  min-width:250px;padding:10px;border-radius:14px;background:rgba(16,17,20,.97);
+  backdrop-filter:blur(18px);border:1px solid var(--hairline);
+  box-shadow:0 22px 50px rgba(0,0,0,.55);
+  display:flex;flex-direction:column;opacity:0;visibility:hidden;
+  transition:opacity .22s var(--e-out),transform .22s var(--e-out),visibility 0s .22s}
+.ddwrap.open .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);transition-delay:0s}
+.dd a{font-size:.85rem;color:var(--muted);text-decoration:none;padding:9px 12px;border-radius:9px;
+  white-space:nowrap;transition:color .2s,background .2s}
+.dd a:hover,.dd a:focus-visible{color:var(--ink);background:rgba(255,255,255,.055)}
+/* the same six inside the mobile drawer */
+.drawer .sub{display:flex;flex-direction:column;margin:2px 0 10px 14px;
+  border-left:1px solid var(--hairline);padding-left:14px}
+.drawer .sub a{font-family:var(--f-body);font-size:.92rem;font-weight:400;color:var(--muted);
+  padding:8px 0;text-decoration:none}
+.drawer .sub a:hover{color:var(--teal)}
 .logo img{height:30px;width:auto;display:block}
 @media(min-width:900px){.logo img{height:34px}}
 @media(min-width:900px){.nav-links{display:flex}}
@@ -423,7 +451,21 @@ body.locked{overflow:hidden}
          so the preview works. Swap each href to /services/ /work/ /about/ /contact/
          once those pages exist. -->
     <div class="nav-links">
-      <a href="#top">Home</a><a href="#services">Services</a><a href="#work">Work</a>
+      <a href="#top">Home</a>
+      <!-- the six open the services section for now. Point each at its own
+           page, /services/ai-video and so on, once those pages exist. -->
+      <div class="ddwrap">
+        <button type="button" class="ddbtn" aria-expanded="false" aria-controls="svcmenu" aria-haspopup="true">
+          Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="dd" id="svcmenu" role="menu">
+        <a role="menuitem" href="#services">AI Video Creation</a>
+        <a role="menuitem" href="#services">Web Design &amp; Development</a>
+        <a role="menuitem" href="#services">Social Media Management</a>
+        <a role="menuitem" href="#services">Email Marketing</a>
+        <a role="menuitem" href="#services">Meta &amp; Google Ads</a>
+        <a role="menuitem" href="#services">SEO</a>
+        </div>
+      </div>
       <a href="#about">About</a><a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="nav-cta">Let's Talk</a>
@@ -434,8 +476,17 @@ body.locked{overflow:hidden}
 <aside id="drawer" class="drawer" aria-hidden="true">
   <button class="drawer-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
   <nav aria-label="Mobile">
-    <a class="dl" href="#top">Home</a><a class="dl" href="#services">Services</a>
-    <a class="dl" href="#work">Work</a><a class="dl" href="#about">About</a><a class="dl" href="#contact">Contact</a>
+    <a class="dl" href="#top">Home</a>
+    <a class="dl" href="#services">Services</a>
+    <div class="sub">
+      <a href="#services">AI Video Creation</a>
+      <a href="#services">Web Design &amp; Development</a>
+      <a href="#services">Social Media Management</a>
+      <a href="#services">Email Marketing</a>
+      <a href="#services">Meta &amp; Google Ads</a>
+      <a href="#services">SEO</a>
+    </div>
+    <a class="dl" href="#about">About</a><a class="dl" href="#contact">Contact</a>
   </nav>
   <a href="#contact" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
 </aside>
@@ -1119,6 +1170,22 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
   document.addEventListener('visibilitychange',()=>{ onscreen=!document.hidden; arm(); });
 
   arm();
+})();
+
+/* services dropdown: hover on a pointer device, click or keyboard everywhere */
+(function(){
+  const w=document.querySelector('.ddwrap'); if(!w) return;
+  const btn=w.querySelector('.ddbtn'), menu=w.querySelector('.dd');
+  const set=o=>{ w.classList.toggle('open',o); btn.setAttribute('aria-expanded',o?'true':'false'); };
+  btn.addEventListener('click',e=>{ e.stopPropagation(); set(!w.classList.contains('open')); });
+  if(matchMedia('(hover:hover)').matches){
+    w.addEventListener('pointerenter',()=>set(true));
+    w.addEventListener('pointerleave',()=>set(false));
+  }
+  document.addEventListener('click',e=>{ if(!w.contains(e.target)) set(false); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&w.classList.contains('open')){ set(false); btn.focus(); } });
+  menu.addEventListener('click',()=>set(false));
+  w.addEventListener('focusout',e=>{ if(!w.contains(e.relatedTarget)) set(false); });
 })();
 
 /* ============================================================
