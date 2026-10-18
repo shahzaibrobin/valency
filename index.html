@@ -187,11 +187,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 /* each tucks behind the one before it, and the count sits on top at the end */
 .av.a1{z-index:5} .av.a2{z-index:4} .av.a3{z-index:3} .av.a4{z-index:2} .av.a5{z-index:1}
 .av.more{z-index:6}
-.av.a1{background:linear-gradient(145deg,#FF6B5A,#C9453A)}
-.av.a2{background:linear-gradient(145deg,#14B8A6,#0C7D71)}
-.av.a3{background:linear-gradient(145deg,#FF8A7B,#E0574A)}
-.av.a4{background:linear-gradient(145deg,#2DD4BF,#108C7F)}
-.av.a5{background:linear-gradient(145deg,#FF6B5A,#14B8A6)}
+/* the two brand colours exactly as supplied, alternating */
+.av.a1,.av.a3,.av.a5{background:var(--coral)}
+.av.a2,.av.a4{background:var(--teal)}
 .av img{width:27px;height:auto;max-height:22px;object-fit:contain;
   filter:brightness(0) invert(1);opacity:.96}
 .av.more{background:#15171B;box-shadow:inset 0 0 0 1px rgba(255,107,90,.45);
@@ -219,7 +217,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
   padding:26px 0;background:transparent;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
           mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
-.mq-row{display:flex;gap:80px;width:max-content;align-items:center}
+.mq-row{display:flex;width:max-content;align-items:center}
+.mq-row>*{margin-right:80px}
 .mq-row+.mq-row{margin-top:26px}
 .mq-row.ltr{animation:mqLeft 28s linear infinite}
 .mq-row.rtl{animation:mqRight 34s linear infinite}
@@ -238,10 +237,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
      and the opposing directions read as flicker rather than motion. */
   .mq-row.rtl{display:none}
   .mq-row+.mq-row{margin-top:0}
-  .mq-row{gap:38px}
+  .mq-row>*{margin-right:34px}
   .mq-row img{height:24px}
   .mq-row .wm{font-size:.98rem;line-height:24px}
-  .mq-row.ltr{animation-duration:22s}
+  .mq-row.ltr{animation-duration:15s}
   .marquee{padding:20px 0;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
             mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
