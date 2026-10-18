@@ -197,6 +197,19 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
   .scov{grid-template-columns:1fr 1fr;gap:1px}
   .scov li{padding-left:56px;padding-right:26px}
 }
+/* phone: the banner already fills the top, so the section under it does not
+   need its full padding as well, and a 52px indent eats a 375px screen */
+@media(max-width:700px){
+  .sbanner{padding-top:16px}
+  .sbanner+.sec{padding-top:34px}
+  .shead{font-size:clamp(1.85rem,8.6vw,2.6rem);margin-bottom:14px}
+  .scov{margin-top:26px}
+  .scov li{padding:20px 0 20px 38px}
+  .scov li::before{top:21px;font-size:.72rem}
+  .scov h3{font-size:.97rem}
+  .scov p{font-size:.9rem}
+  .sclose{margin-top:24px;font-size:.9rem}
+}
 
 /* leadership: two people side by side */
 .team{display:grid;gap:30px;grid-template-columns:1fr;margin-top:44px}
@@ -425,6 +438,20 @@ footer{background:#070708;border-top:1px solid var(--hairline);padding:62px 0 28
   background:radial-gradient(circle closest-side,
     rgba(255,107,90,.13),rgba(20,184,166,.08) 52%,transparent 72%)}
 
+/* each slide links to its own service page */
+.slink{display:block;width:100%;height:100%;position:relative;text-decoration:none}
+.slink-cue{position:absolute;right:16px;bottom:16px;z-index:2;display:inline-flex;align-items:center;
+  gap:8px;min-height:40px;padding:0 16px;border-radius:30px;
+  background:rgba(10,10,11,.62);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);
+  color:#fff;font-family:var(--f-body);font-size:.76rem;white-space:nowrap;
+  opacity:0;transform:translateY(6px);transition:opacity .3s var(--e-out),transform .3s var(--e-out),background .25s}
+.slide.is-on .slink:hover .slink-cue,.slide.is-on .slink:focus-visible .slink-cue{opacity:1;transform:translateY(0)}
+.slink:hover .slink-cue{background:var(--coral);border-color:var(--coral);color:#0A0A0B}
+/* no hover on a phone, so it is simply always there */
+@media(hover:none),(max-width:700px){
+  .slide.is-on .slink-cue{opacity:1;transform:none}
+  .slink-cue{right:10px;bottom:10px;min-height:34px;padding:0 12px;font-size:.7rem}
+}
 /* ---------- services slideshow ---------- */
 .slides{margin-top:40px;max-width:1120px;margin-inline:auto}
 .slides-stage{position:relative;aspect-ratio:1600/533;border-radius:var(--radius);
@@ -782,39 +809,39 @@ body.locked{overflow:hidden}
       <div class="slides-stage">
       <figure class="slide is-on" role="group" aria-roledescription="slide"
         aria-label="1 of 6: AI Video Creation">
-        <img src="assets/services/01-ai-video.webp" width="1600" height="533"
+        <a class="slink" href="services/ai-video-creation/" aria-label="AI Video Creation, read more"><img src="assets/services/01-ai-video.webp" width="1600" height="533"
           fetchpriority="high" decoding="async"
-          alt="AI Video Creation. Cinematic commercials. AI speed. Human direction.">
+          alt="AI Video Creation. Cinematic commercials. AI speed. Human direction."><span class="slink-cue"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>View service</span></a>
       </figure>
       <figure class="slide" role="group" aria-roledescription="slide"
         aria-label="2 of 6: Web Design and Development" aria-hidden="true">
-        <img src="assets/services/02-web-development.webp" width="1600" height="533"
+        <a class="slink" href="services/web-development/" aria-label="Web Design and Development, read more"><img src="assets/services/02-web-development.webp" width="1600" height="533"
           loading="lazy" decoding="async"
-          alt="Web Design and Development. Built to communicate your business.">
+          alt="Web Design and Development. Built to communicate your business."><span class="slink-cue"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>View service</span></a>
       </figure>
       <figure class="slide" role="group" aria-roledescription="slide"
         aria-label="3 of 6: Social Media Management" aria-hidden="true">
-        <img src="assets/services/03-social-media.webp" width="1600" height="533"
+        <a class="slink" href="services/social-media-management/" aria-label="Social Media Management, read more"><img src="assets/services/03-social-media.webp" width="1600" height="533"
           loading="lazy" decoding="async"
-          alt="Social Media Management. A feed that looks deliberate.">
+          alt="Social Media Management. A feed that looks deliberate."><span class="slink-cue"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>View service</span></a>
       </figure>
       <figure class="slide" role="group" aria-roledescription="slide"
         aria-label="4 of 6: Email Marketing" aria-hidden="true">
-        <img src="assets/services/04-email-marketing.webp" width="1600" height="533"
+        <a class="slink" href="services/email-marketing/" aria-label="Email Marketing, read more"><img src="assets/services/04-email-marketing.webp" width="1600" height="533"
           loading="lazy" decoding="async"
-          alt="Email Marketing. Your audience. Your revenue. Email design and email copywriting.">
+          alt="Email Marketing. Your audience. Your revenue. Email design and email copywriting."><span class="slink-cue"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>View service</span></a>
       </figure>
       <figure class="slide" role="group" aria-roledescription="slide"
         aria-label="5 of 6: Meta and Google Ads" aria-hidden="true">
-        <img src="assets/services/05-ads.webp" width="1600" height="533"
+        <a class="slink" href="services/meta-google-ads/" aria-label="Meta and Google Ads, read more"><img src="assets/services/05-ads.webp" width="1600" height="533"
           loading="lazy" decoding="async"
-          alt="Meta and Google Ads. Maximize your ROI, minimize your ad spend.">
+          alt="Meta and Google Ads. Maximize your ROI, minimize your ad spend."><span class="slink-cue"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>View service</span></a>
       </figure>
       <figure class="slide" role="group" aria-roledescription="slide"
         aria-label="6 of 6: SEO, Search Engine Optimization" aria-hidden="true">
-        <img src="assets/services/06-seo.webp" width="1600" height="533"
+        <a class="slink" href="services/seo/" aria-label="Search Engine Optimization, read more"><img src="assets/services/06-seo.webp" width="1600" height="533"
           loading="lazy" decoding="async"
-          alt="SEO, Search Engine Optimization. Improve your visibility, boost your authority.">
+          alt="SEO, Search Engine Optimization. Improve your visibility, boost your authority."><span class="slink-cue"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>View service</span></a>
       </figure>
         <button type="button" class="s-arrow s-prev" aria-label="Previous service">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
