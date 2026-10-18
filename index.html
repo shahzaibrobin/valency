@@ -212,7 +212,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .faq .ans p{padding-bottom:20px;font-size:.95rem}
 
 /* footer */
-footer{background:transparent;border-top:1px solid var(--hairline);padding:62px 0 28px;position:relative}
+/* solid black: the fluid stops at the footer, nothing shows through it */
+footer{background:#070708;border-top:1px solid var(--hairline);padding:62px 0 28px;position:relative;z-index:1}
 .fgrid{display:grid;gap:40px 28px;grid-template-columns:1fr;margin-bottom:46px}
 @media(min-width:720px){.fgrid{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.fgrid{grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:28px}}
