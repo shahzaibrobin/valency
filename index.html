@@ -364,6 +364,17 @@ footer{background:#070708;border-top:1px solid var(--hairline);padding:62px 0 28
   background:linear-gradient(140deg,#15171C,#0A0A0B);
   display:flex;align-items:center;justify-content:center}
 .vbanner video,.vbanner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* sound toggle on the showreel */
+.sndbtn{position:absolute;right:18px;bottom:18px;z-index:3;display:inline-flex;align-items:center;
+  gap:8px;min-height:40px;padding:0 15px;border-radius:30px;cursor:pointer;
+  background:rgba(10,10,11,.6);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px);
+  color:var(--ink);font-family:var(--f-body);font-size:.76rem;letter-spacing:.2px;
+  transition:background .25s,border-color .25s,color .25s}
+.sndbtn:hover{background:var(--coral);border-color:var(--coral);color:#0A0A0B}
+.sndbtn i{font-size:.82rem}
+.sndbtn[aria-pressed="true"] span{display:none}
+.sndbtn[aria-pressed="true"]{padding:0 13px}
+@media(max-width:600px){.sndbtn{right:12px;bottom:12px;font-size:.72rem}}
 .vbanner::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(to bottom,rgba(10,10,11,.35) 0%,rgba(10,10,11,0) 35%,rgba(10,10,11,.85) 100%)}
 .vbanner .ph{position:relative;z-index:2;text-align:center;color:var(--teal);font-family:var(--f-display);
@@ -584,7 +595,15 @@ body.locked{overflow:hidden}
 <!-- ===== TOP VIDEO BANNER (full bleed, edge to edge) ===== -->
 <section class="banner" id="banner" aria-label="Showreel">
   <div class="vbanner">
-    <div class="ph"><i class="fa-solid fa-play"></i>[PLACEHOLDER]<br>Full width showreel video</div>
+    <!-- 1080 is the default and the no JS fallback. The script swaps in the
+         720 file on a phone before anything downloads. -->
+    <video id="reel" poster="assets/video/poster.webp" muted loop playsinline
+      preload="metadata" disablepictureinpicture aria-label="Valency showreel">
+      <source src="assets/video/banner-1080.mp4" type="video/mp4">
+    </video>
+    <button type="button" class="sndbtn" aria-pressed="false">
+      <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i><span>Sound on</span>
+    </button>
   </div>
 </section>
 
@@ -1297,6 +1316,38 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
   document.addEventListener('visibilitychange',()=>{ onscreen=!document.hidden; arm(); });
 
   arm();
+})();
+
+/* Showreel. Autoplays muted because no browser allows sound without a gesture,
+   loops, and offers a sound toggle for anyone who wants the music. Pauses when
+   scrolled away so it is not decoding video nobody is looking at. */
+(function(){
+  const v=document.getElementById('reel'); if(!v) return;
+  const btn=document.querySelector('.sndbtn');
+  const small=innerWidth<900;
+  if(small){                                  // phones get the 5.5MB cut, not the 13MB one
+    v.querySelector('source').remove();
+    v.src='assets/video/banner-720.mp4';
+  }
+  if(!reduced){ v.autoplay=true; v.play().catch(()=>{}); }
+
+  btn.addEventListener('click',()=>{
+    const on = v.muted;                       // turning sound ON
+    v.muted = !on;
+    if(on && v.paused) v.play().catch(()=>{});
+    btn.setAttribute('aria-pressed', on?'true':'false');
+    btn.setAttribute('aria-label', on?'Turn sound off':'Turn sound on');
+    btn.querySelector('i').className = on ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+  });
+  btn.setAttribute('aria-label','Turn sound on');
+
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{
+      if(es[0].isIntersecting){ if(!reduced) v.play().catch(()=>{}); }
+      else { v.pause(); }
+    },{threshold:.15}).observe(v);
+  }
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden) v.pause(); });
 })();
 
 /* drawer: Services opens on tap, same as the desktop dropdown */
