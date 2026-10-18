@@ -1034,12 +1034,21 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
 (function(){
   const v=document.getElementById('reel'); if(!v) return;
   const btn=document.querySelector('.sndbtn');
-  const small=innerWidth<900;
-  if(small){                                  // phones get the 5.5MB cut, not the 13MB one
+  /* 1080 only for a genuinely large screen. At 62vh a 1440px laptop shows the
+     banner around 1440x500, where the 5.5MB cut is indistinguishable and starts
+     playing far sooner than a 13MB one. */
+  const small=innerWidth<1600;
+  if(small){
     v.querySelector('source').remove();
     v.src='assets/video/banner-720.mp4';
+    v.load();
   }
-  if(!reduced){ v.autoplay=true; v.play().catch(()=>{}); }
+  if(reduced){ v.autoplay=false; v.pause(); }
+  else {
+    const go=()=>v.play().catch(()=>{});
+    go();                                     // belt and braces behind the attribute
+    v.addEventListener('canplay',go,{once:true});
+  }
 
   btn.addEventListener('click',()=>{
     const on = v.muted;                       // turning sound ON
@@ -1055,7 +1064,7 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
     new IntersectionObserver(es=>{
       if(es[0].isIntersecting){ if(!reduced) v.play().catch(()=>{}); }
       else { v.pause(); }
-    },{threshold:.15}).observe(v);
+    },{threshold:.01}).observe(v);
   }
   document.addEventListener('visibilitychange',()=>{ if(document.hidden) v.pause(); });
 })();
