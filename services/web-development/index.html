@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+VALENCY · Creative and Digital Growth Agency
+=====================================================================
+Preview URL : anasnasir.co/valency/   (self contained, relative paths only,
+              so the whole folder can be lifted into WordPress or any host)
+Archetype   : E1 · agency service, price gated, book a call
+              (Adam Cerra skeleton, proof engine swapped to work + logos +
+              video testimonials because no results numbers are verified)
+Awareness   : mixed, opens problem aware, work placed high for the
+              sophisticated buyers described in questionnaire #19
+Mechanism   : The Valency Model (4 steps) · chemistry motif from the brand name
+Voice       : premium, cinematic, confident, human. Velocity Digital's rhythm
+              (caps eyebrows, questions as headings, named process) minus its
+              unsupported claims, which questionnaire #15 forbids.
+
+TOKENS   bg #0A0A0B · surface #141518 · coral #FF6B5A (actions only)
+         teal #14B8A6 (eyebrows, icons, dividers, stats) · muted #A8ADB8
+FONTS    Space Grotesk (display) · Inter (body)
+
+NO INVENTED DATA. Every stat, logo, testimonial and client name is a
+[PLACEHOLDER] until the client supplies and approves it.
+
+PLACEHOLDERS TO FILL
+  hero video · client logos ×8 · work videos ×6 · testimonial videos ×3
+  stat row ×4 · founder name, photo and story · contact email, phone, socials
+=====================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className+=" js";</script>
+<title>Web Design and Development | Valency</title>
+<meta name="description" content="A site that carries the brand properly and tells someone what the business does inside ten seconds. Built to communicate, not just to exist.">
+<!-- browser tab icon: the mark only, no wordmark, since it renders at 16px -->
+<link rel="canonical" href="https://valenccy.com/services/web-development/">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/brand/icon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="../../assets/brand/icon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/brand/icon-180.png">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0A0A0B; --bg2:#141518; --surface:#17181C;
+  --coral:#FF6B5A; --coral-2:#FF8A7B;
+  --teal:#14B8A6; --teal-2:#2DD4BF;
+  --ink:#D8E6E3; --muted:#90A4A1; --head:#2DD4BF; --hairline:rgba(255,255,255,.10);
+  --f-display:'Outfit',system-ui,sans-serif;
+  --f-body:'Inter',system-ui,sans-serif;
+  --h1:clamp(1.9rem,5.2vw,3.2rem); --h2:clamp(1.5rem,4.6vw,2.5rem); --h3:1.12rem;
+  --lead:1.06rem; --eyebrow:.7rem; --stat:clamp(2.1rem,7vw,3.4rem);
+  --pad-x:18px; --sec-y:64px; --radius:18px;
+  --e-out:cubic-bezier(.16,1,.3,1); --e-back:cubic-bezier(.34,1.56,.64,1);
+}
+@media(min-width:900px){:root{--pad-x:26px;--sec-y:104px}}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip;background:var(--bg)}
+body{background:transparent;color:var(--ink);font-family:var(--f-body);line-height:1.62;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--pad-x)}
+.sec{padding:var(--sec-y) 0;position:relative;background:transparent}
+.sec--grad{background:transparent;border-top:1px solid var(--hairline)}
+.sec--surface{background:transparent;border-top:1px solid var(--hairline)}
+
+.eyebrow{font-size:var(--eyebrow);font-weight:600;letter-spacing:2.6px;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+h1{color:var(--head);font-family:var(--f-display);font-size:var(--h1);font-weight:500;line-height:1.08;letter-spacing:-.035em;margin-bottom:18px}
+h2{color:var(--head);font-family:var(--f-display);font-size:var(--h2);font-weight:500;line-height:1.14;letter-spacing:-.028em;margin-bottom:16px}
+h3{color:var(--head);font-family:var(--f-display);font-size:var(--h3);font-weight:600;margin-bottom:9px}
+.coral{color:var(--coral)} .tealc{color:var(--teal)}
+.lead{font-size:var(--lead);color:var(--muted);max-width:640px}
+p{color:var(--muted);margin-bottom:14px} p:last-child{margin-bottom:0}
+
+.btn{position:relative;overflow:hidden;display:block;width:100%;text-align:center;
+  background:linear-gradient(135deg,var(--coral),var(--coral-2));color:#0A0A0B;
+  font-family:var(--f-display);font-weight:700;font-size:1rem;padding:17px 32px;border-radius:50px;
+  text-decoration:none;box-shadow:0 10px 34px rgba(255,107,90,.26);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 46px rgba(255,107,90,.4)}
+.btn::after{content:"";position:absolute;inset:0;transform:translateX(-110%) skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transition:transform .75s var(--e-out)}
+.btn:hover::after{transform:translateX(110%) skewX(-18deg)}
+.btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--hairline);box-shadow:none}
+.btn--ghost:hover{border-color:var(--teal);box-shadow:none}
+@media(min-width:640px){.btn{display:inline-block;width:auto}}
+.fud{font-size:.84rem;color:var(--muted);margin-top:14px}
+.fud i{color:var(--teal);margin-right:7px}
+
+.card{background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius);padding:28px 24px;height:100%}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+.icn{width:46px;height:46px;border-radius:50%;background:rgba(20,184,166,.12);border:1px solid rgba(20,184,166,.32);
+  display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.05rem;margin-bottom:18px}
+.glow{position:absolute;width:480px;height:480px;border-radius:50%;filter:blur(150px);pointer-events:none;z-index:0}
+.glow--coral{background:rgba(255,107,90,.13)} .glow--teal{background:rgba(20,184,166,.12)}
+.sec>.wrap{position:relative;z-index:1}
+.intro{margin-inline:auto;text-align:center}
+.intro .lead{margin-inline:auto}
+
+/* nav */
+/* scrolls away with the page, it does not follow you down */
+nav{position:relative;z-index:60;background:rgba(10,10,11,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--hairline)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:15px;padding-bottom:15px}
+.nav-links{display:none;gap:30px;align-items:center}
+/* coral by default, white for wherever you currently are on the page */
+.nav-links a,.ddbtn{font-family:var(--f-display);font-size:.84rem;font-weight:500;
+  letter-spacing:.01em;color:var(--coral);text-decoration:none;transition:color .22s}
+.nav-links a:hover,.ddbtn:hover{color:var(--coral-2)}
+.nav-links a.current,.ddwrap.current .ddbtn{color:#fff}
+.nav-cta{margin-left:28px;font-family:var(--f-display);font-size:.8rem;font-weight:700;color:#0A0A0B;background:var(--coral);
+  padding:0 20px;height:44px;display:inline-flex;align-items:center;border-radius:40px;text-decoration:none;white-space:nowrap}
+.logo{display:flex;align-items:center;text-decoration:none;flex:0 0 auto;margin-right:auto}
+/* logo left, burger and the button together on the right */
+.burger{margin-left:14px}
+/* links sit dead centre of the bar whatever the logo or button widths are */
+@media(min-width:900px){
+  nav .wrap{position:relative}
+  .nav-links{position:absolute;left:50%;transform:translateX(-50%)}
+}
+/* services dropdown */
+.ddwrap{position:relative}
+.ddbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;cursor:pointer;padding:0}
+.ddwrap.open .ddbtn{color:var(--coral-2)}
+.ddbtn i{font-size:.6rem;transition:transform .25s var(--e-out)}
+.ddwrap.open .ddbtn i{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(-6px);
+  width:max-content;max-width:min(230px,calc(100vw - 32px));padding:7px;border-radius:12px;
+  background:rgba(14,15,18,.98);backdrop-filter:blur(18px);border:1px solid var(--hairline);
+  box-shadow:0 20px 44px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;opacity:0;visibility:hidden;
+  transition:opacity .22s var(--e-out),transform .22s var(--e-out),visibility 0s .22s}
+.ddwrap.open .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);transition-delay:0s}
+.dd a{font-family:var(--f-body);font-size:.8rem;font-weight:400;letter-spacing:0;
+  color:var(--muted);text-decoration:none;padding:8px 11px;border-radius:8px;
+  line-height:1.3;transition:color .2s,background .2s}
+.dd a:hover,.dd a:focus-visible{color:#fff;background:rgba(255,107,90,.13)}
+/* the same six inside the mobile drawer */
+/* closed until tapped. The height is measured in JS and set in pixels, which
+   animates exactly without a guessed max-height that would clip or lag. */
+.drawer .sub{overflow:hidden;height:0;transition:height .34s var(--e-out)}
+.drawer .subin{display:flex;flex-direction:column;
+  margin:6px 0 12px 14px;border-left:1px solid var(--hairline);padding-left:14px}
+.drawer .dltog{width:100%;display:flex;align-items:center;justify-content:space-between;
+  background:none;border:0;border-bottom:1px solid var(--hairline);cursor:pointer;text-align:left}
+.drawer .dltog i{font-size:.66rem;color:var(--coral);transition:transform .3s var(--e-out)}
+.drawer .dltog[aria-expanded="true"] i{transform:rotate(180deg)}
+.drawer .sub a{font-family:var(--f-body);font-size:.92rem;font-weight:400;color:var(--muted);
+  padding:8px 0;text-decoration:none}
+.drawer .sub a:hover{color:var(--coral-2)}
+@media(max-width:899px){
+  /* burger left, logo dead centre, button right. The logo is taken out of the
+     flow so uneven burger and button widths cannot shift it off centre. */
+  nav .wrap{position:relative;padding-top:11px;padding-bottom:11px}
+  .logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin-right:0}
+  .logo img{height:26px}
+  .burger{margin-left:0;order:-1}
+  .nav-cta{margin-left:auto;font-size:.74rem;padding:0 15px;height:40px}
+}
+@media(max-width:360px){
+  .logo img{height:23px}
+  .nav-cta{font-size:.7rem;padding:0 12px}
+}
+.drawer a.dl.current{color:var(--coral)}
+.logo img{height:30px;width:auto;display:block}
+@media(min-width:900px){.logo img{height:34px}}
+@media(min-width:900px){.nav-links{display:flex}}
+
+/* hero */
+.vframe{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--hairline);
+  background:linear-gradient(140deg,#15171C,#0C0D10);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center}
+.vframe .ph{text-align:center;padding:22px;color:var(--teal);font-family:var(--f-display);font-size:.72rem;
+  font-weight:700;letter-spacing:1.8px;text-transform:uppercase;line-height:1.9}
+.vframe .ph i{display:block;font-size:2.2rem;margin-bottom:12px;color:var(--coral)}
+/* ---------- service pages ---------- */
+.sbanner{padding:26px 0 0}
+.sbanner img{display:block;width:100%;height:auto;border-radius:var(--radius);
+  border:1px solid var(--hairline)}
+.shead{font-size:clamp(2.1rem,6.4vw,3.6rem);line-height:1.04;letter-spacing:-.035em;
+  font-weight:500;color:var(--head);margin-bottom:18px}
+/* numbered list of what the service actually includes */
+.scov{list-style:none;counter-reset:c;padding:0;margin:34px 0 0;
+  display:grid;gap:1px;background:var(--hairline);border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline)}
+.scov li{counter-increment:c;background:var(--bg);padding:24px 0 24px 52px;position:relative}
+.scov li::before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:25px;
+  font-family:var(--f-display);font-size:.78rem;font-weight:600;color:var(--coral);letter-spacing:1px}
+.scov h3{font-family:var(--f-display);font-size:1.02rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.scov p{color:var(--muted);font-size:.93rem;max-width:62ch}
+.sclose{margin-top:30px;color:var(--teal-2);font-size:.95rem;font-style:italic;max-width:62ch}
+@media(min-width:760px){
+  .scov{grid-template-columns:1fr 1fr;gap:1px}
+  .scov li{padding-left:56px;padding-right:26px}
+}
+
+/* leadership: two people side by side */
+.team{display:grid;gap:30px;grid-template-columns:1fr;margin-top:44px}
+@media(min-width:820px){.team{grid-template-columns:1fr 1fr;gap:38px}}
+.person{display:flex;flex-direction:column;align-items:flex-start}
+.pphoto{width:100%;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--hairline);background:linear-gradient(140deg,#15171C,#0C0D10);margin-bottom:22px}
+.pphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.pphoto .ph{width:100%;height:100%}
+.person h3{font-family:var(--f-display);font-size:1.35rem;font-weight:600;letter-spacing:-.02em;
+  color:var(--head);margin-bottom:5px}
+.prole{font-size:.74rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--coral);margin-bottom:15px;display:block}
+.person p{color:var(--muted);font-size:.95rem}
+.ptags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0}
+.ptags li{font-size:.74rem;color:var(--muted);border:1px solid var(--hairline);
+  border-radius:30px;padding:6px 13px}
+
+/* Stacked client circles. They overlap far enough that only a sliver of each
+   one behind shows, the way a row of profile photos reads, and each sits on a
+   brand coloured disc because the logos are white and were disappearing into
+   the black. Text on the left, stack on the right. */
+.trust{display:flex;align-items:center;gap:14px}
+.avatars{display:flex;align-items:center}
+.av{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  border:2px solid #0A0A0B;margin-left:-17px;overflow:hidden;position:relative;
+  transition:margin-left .28s var(--e-out)}
+.av:first-child{margin-left:0}
+/* each tucks behind the one before it, and the count sits on top at the end */
+.av.a1{z-index:5} .av.a2{z-index:4} .av.a3{z-index:3} .av.a4{z-index:2} .av.a5{z-index:1}
+.av.more{z-index:6}
+/* the two brand colours exactly as supplied, alternating */
+.av.a1,.av.a3,.av.a5{background:var(--coral)}
+.av.a2,.av.a4{background:var(--teal)}
+.av img{width:27px;height:auto;max-height:22px;object-fit:contain;
+  filter:brightness(0) invert(1);opacity:.96}
+.av.more{background:#15171B;box-shadow:inset 0 0 0 1px rgba(255,107,90,.45);
+  font-family:var(--f-display);font-size:.72rem;font-weight:700;color:var(--coral)}
+/* spread apart on hover so each one can be seen */
+.trust:hover .av{margin-left:-7px}
+.trust:hover .av:first-child{margin-left:0}
+.trusttext{display:flex;flex-direction:column;gap:4px;align-items:flex-end;text-align:right}
+.hero-proof .stars{display:flex;gap:2.5px;font-size:.74rem;line-height:1}
+.hero-proof .stars i{color:var(--coral)}
+.trusttext span{font-size:.78rem;color:var(--muted);line-height:1;white-space:nowrap}
+@media(max-width:600px){
+  .trust{gap:11px}
+  .av{width:35px;height:35px;margin-left:-15px}
+  .av img{width:24px;max-height:19px}
+}
+.hero-proof .pill{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.hero-proof i{color:var(--teal)}
+
+/* marquee */
+/* Two rows travelling opposite ways. Same clients in both, different order,
+   so the second row does not read as a copy of the first. Each row holds its
+   list twice and shifts exactly -50%, which is what makes the loop seamless. */
+.marquee{overflow:hidden;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+  padding:26px 0;background:transparent;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.mq-row{display:flex;width:max-content;align-items:center}
+.mq-row>*{margin-right:80px}
+.mq-row+.mq-row{margin-top:26px}
+.mq-row.ltr{animation:mqLeft 28s linear infinite}
+.mq-row.rtl{animation:mqRight 34s linear infinite}
+@keyframes mqLeft{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+@keyframes mqRight{from{transform:translateX(-25%)}to{transform:translateX(0)}}
+.mq-row img{height:34px;width:auto;flex:0 0 auto;opacity:.62;
+  transition:opacity .3s var(--e-out),transform .3s var(--e-out)}
+.mq-row img:hover{opacity:1;transform:scale(1.06)}
+/* no logo supplied for this one, so it is set as a wordmark in the heading face */
+.mq-row .wm{flex:0 0 auto;font-family:var(--f-display);font-weight:600;font-size:1.32rem;
+  letter-spacing:-.02em;color:#fff;opacity:.62;line-height:34px;white-space:nowrap;
+  transition:opacity .3s var(--e-out),transform .3s var(--e-out)}
+.mq-row .wm:hover{opacity:1;transform:scale(1.06)}
+@media(max-width:700px){
+  /* one row on a phone. Two rows at this width showed barely two logos each
+     and the opposing directions read as flicker rather than motion. */
+  .mq-row.rtl{display:none}
+  .mq-row+.mq-row{margin-top:0}
+  .mq-row>*{margin-right:34px}
+  .mq-row img{height:24px}
+  .mq-row .wm{font-size:.98rem;line-height:24px}
+  .mq-row.ltr{animation-duration:15s}
+  .marquee{padding:20px 0;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+}
+
+/* problem list */
+.leaks{margin-top:38px;border-top:1px solid var(--hairline)}
+.leak{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:24px 0;
+  border-bottom:1px solid var(--hairline);transition:padding-left .35s var(--e-out)}
+.leak:hover{padding-left:10px}
+.leak .n{font-family:var(--f-display);font-size:1.4rem;font-weight:700;color:rgba(20,184,166,.38);line-height:1;transition:color .35s}
+.leak:hover .n{color:var(--teal)}
+.leak h3{font-size:1.08rem;margin-bottom:6px}
+.leak p{font-size:.94rem;max-width:580px;margin:0}
+@media(min-width:900px){.leak{grid-template-columns:auto 1fr 1.3fr;gap:26px;align-items:center;padding:28px 0}
+  .leak h3{margin-bottom:0}.leak .n{font-size:1.8rem}}
+
+/* pillars */
+.svc{position:relative;background:linear-gradient(165deg,#15171B 0%,#1A1C21 100%);border:1px solid var(--hairline);
+  border-radius:var(--radius);padding:34px 26px 28px;overflow:hidden;height:100%;transform-style:preserve-3d;will-change:transform;
+  transition:transform .4s var(--e-out),border-color .4s}
+.svc:hover{border-color:rgba(20,184,166,.45)}
+.svc.lean{transition:transform .16s ease-out}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);opacity:.8}
+.svc .ghost{position:absolute;top:-14px;right:8px;font-family:var(--f-display);font-size:6.4rem;font-weight:700;
+  color:rgba(255,255,255,.035);line-height:1;pointer-events:none;user-select:none;transition:color .45s,transform .6s var(--e-back)}
+.svc:hover .ghost{color:rgba(255,107,90,.14);transform:translateY(-6px) scale(1.07)}
+.svc h3{font-size:1.2rem;margin-bottom:12px}
+.svc p{font-size:.93rem}
+.svc ul{list-style:none;margin-top:12px}
+.svc li{font-size:.88rem;color:var(--muted);padding:5px 0 5px 20px;position:relative}
+.svc li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;border-radius:50%;background:var(--teal);opacity:.7}
+
+/* work grid */
+.work{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--hairline);
+  background:linear-gradient(140deg,#15171C,#0C0D10);aspect-ratio:9/16;
+  display:flex;align-items:center;justify-content:center;transition:transform .5s var(--e-out),box-shadow .5s var(--e-out)}
+.work:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 22px 60px rgba(255,107,90,.18)}
+.work .ph{text-align:center;color:var(--teal);font-family:var(--f-display);font-size:.64rem;font-weight:700;
+  letter-spacing:1.6px;text-transform:uppercase;line-height:1.9;padding:16px}
+.work .ph i{display:block;font-size:1.7rem;margin-bottom:10px;color:var(--coral)}
+#work .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:760px){#work .grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+
+/* model steps */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--teal),rgba(20,184,166,.10))}
+.tl-step{position:relative;padding-bottom:30px}
+.tl-step:last-child{padding-bottom:0}
+.tl-step::before{content:"";position:absolute;left:-30px;top:5px;width:12px;height:12px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 0 5px rgba(20,184,166,.16)}
+.tl-step .k{font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:6px}
+.tl-step h3{font-size:1.1rem;margin-bottom:7px}
+.tl-step p{font-size:.94rem;margin:0}
+
+/* numbers */
+.num{font-family:var(--f-display);font-size:var(--stat);font-weight:700;color:var(--coral);line-height:1;
+  font-variant-numeric:tabular-nums;display:inline-block;transition:transform .7s var(--e-back)}
+.js .rv .num{transform:scale(.72)} .js .rv.in .num{transform:scale(1)}
+.numlabel{font-size:.72rem;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+/* faq */
+.faq{border-bottom:1px solid var(--hairline)}
+.faq button{width:100%;background:none;border:0;color:var(--ink);font-family:var(--f-display);font-weight:600;
+  font-size:1rem;text-align:left;padding:20px 40px 20px 0;cursor:pointer;position:relative}
+.faq button i{position:absolute;right:4px;top:50%;transform:translateY(-50%);color:var(--coral);font-size:.86rem;transition:transform .3s}
+.faq.open button i{transform:translateY(-50%) rotate(45deg)}
+.faq .ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq.open .ans{max-height:520px}
+.faq .ans p{padding-bottom:20px;font-size:.95rem}
+
+/* footer */
+/* solid black: the fluid stops at the footer, nothing shows through it */
+footer{background:#070708;border-top:1px solid var(--hairline);padding:62px 0 28px;position:relative;z-index:1}
+.fgrid{display:grid;gap:40px 28px;grid-template-columns:1fr;margin-bottom:46px}
+@media(min-width:720px){.fgrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.fgrid{grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:28px}}
+.fcol{display:flex;flex-direction:column;align-items:flex-start}
+.fhead{font-family:var(--f-display);font-size:.74rem;font-weight:600;letter-spacing:2.2px;
+  text-transform:uppercase;color:var(--coral);margin-bottom:18px}
+.fcol a{font-size:.9rem;color:var(--muted);text-decoration:none;padding:6px 0;transition:color .25s}
+.fcol a:hover{color:var(--teal)}
+.fbrand{max-width:320px}
+.fname{display:block;margin-bottom:14px}
+.fname img{height:42px;width:auto;display:block}
+.ftag{font-size:.92rem;color:var(--coral);margin-bottom:24px}
+.social{display:flex;gap:12px}
+.social a{width:44px;height:44px;border-radius:50%;border:1px solid var(--hairline);display:grid;
+  place-items:center;color:var(--muted);padding:0;transition:color .25s,border-color .25s,background .25s}
+.social a:hover{color:#0A0A0B;background:var(--teal);border-color:var(--teal)}
+.fcontact{display:flex;align-items:center;gap:10px}
+.fcontact i{color:var(--teal);width:16px;font-size:.85rem}
+.fbtn{margin-top:18px;padding:11px 20px;font-size:.82rem}
+.fbottom{border-top:1px solid var(--hairline);padding-top:22px;font-size:.78rem;color:#5A6069;
+  display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between}
+.fbottom a{color:#5A6069;text-decoration:none;transition:color .25s}
+.fbottom a:hover{color:var(--teal)}
+
+
+/* ===== full bleed top video banner ===== */
+.banner{padding:0;background:transparent}
+.vbanner{position:relative;width:100%;height:46vh;min-height:260px;overflow:hidden;
+  border-bottom:1px solid var(--hairline);
+  background:linear-gradient(140deg,#15171C,#0A0A0B);
+  display:flex;align-items:center;justify-content:center}
+.vbanner video,.vbanner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* sound toggle on the showreel */
+.sndbtn{position:absolute;right:18px;bottom:18px;z-index:3;display:inline-flex;align-items:center;
+  gap:8px;min-height:40px;padding:0 15px;border-radius:30px;cursor:pointer;
+  background:rgba(10,10,11,.6);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px);
+  color:var(--ink);font-family:var(--f-body);font-size:.76rem;letter-spacing:.2px;
+  transition:background .25s,border-color .25s,color .25s}
+.sndbtn:hover{background:var(--coral);border-color:var(--coral);color:#0A0A0B}
+.sndbtn i{font-size:.82rem}
+.sndbtn[aria-pressed="true"] span{display:none}
+.sndbtn[aria-pressed="true"]{padding:0 13px}
+@media(max-width:600px){.sndbtn{right:12px;bottom:12px;font-size:.72rem}}
+.vbanner::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(10,10,11,.35) 0%,rgba(10,10,11,0) 35%,rgba(10,10,11,.85) 100%)}
+.vbanner .ph{position:relative;z-index:2;text-align:center;color:var(--teal);font-family:var(--f-display);
+  font-size:.72rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;line-height:1.9}
+.vbanner .ph i{display:block;font-size:2.4rem;margin-bottom:12px;color:var(--coral)}
+@media(min-width:900px){.vbanner{height:62vh;min-height:420px}}
+/* hero now sits under the banner, so it no longer needs the full viewport */
+#top{min-height:0;display:block;padding-top:54px;padding-bottom:var(--sec-y)}
+@media(min-width:900px){#top{padding-top:72px}}
+#top h1{text-align:center}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;align-items:center;justify-content:center}
+
+/* Shown only when the WebGL fluid cannot run: a cheap pointer glow that any
+   machine can draw, so the page is never just flat black. Composited on the
+   GPU as a transform, no per frame layout. */
+#fxlite{position:fixed;left:0;top:0;width:60vmax;height:60vmax;margin:-30vmax 0 0 -30vmax;
+  pointer-events:none;z-index:-1;opacity:0;transition:opacity .9s ease;
+  background:radial-gradient(circle closest-side,
+    rgba(255,107,90,.30),rgba(255,138,123,.18) 32%,rgba(20,184,166,.14) 56%,transparent 74%);
+  will-change:transform}
+#fxlite.on{opacity:1}
+/* reduce motion: a still wash, nothing that moves */
+#fxlite.still{opacity:1;transition:none;left:50%;top:38%;
+  background:radial-gradient(circle closest-side,
+    rgba(255,107,90,.13),rgba(20,184,166,.08) 52%,transparent 72%)}
+
+/* ---------- services slideshow ---------- */
+.slides{margin-top:40px;max-width:1120px;margin-inline:auto}
+.slides-stage{position:relative;aspect-ratio:1600/533;border-radius:var(--radius);
+  overflow:hidden;border:1px solid var(--hairline);background:#101114}
+/* The outgoing slide is held fully opaque UNDERNEATH while the incoming one
+   fades in on top. A plain two way crossfade dips through a half transparent
+   middle, which on full bleed photos reads as a grey flicker. */
+.slide{position:absolute;inset:0;margin:0;opacity:0;z-index:0;transform:scale(1.035);
+  transition:opacity .85s cubic-bezier(.4,0,.2,1),transform 1.5s cubic-bezier(.16,1,.3,1)}
+.slide.was-on{opacity:1;z-index:1;transform:scale(1);transition:none}
+.slide.is-on{opacity:1;z-index:2;transform:scale(1)}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* arrows: always in the DOM for keyboard, quiet until hover or focus */
+.s-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;
+  display:grid;place-items:center;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(10,10,11,.55);color:#fff;backdrop-filter:blur(6px);
+  opacity:0;transition:opacity .25s,background .25s;font-size:.9rem}
+.s-prev{left:12px} .s-next{right:12px}
+.slides-stage:hover .s-arrow,.s-arrow:focus-visible{opacity:1}
+.s-arrow:hover{background:var(--coral);color:#0A0A0B}
+/* no hover on touch, so the arrows have to stand on their own there */
+@media(hover:none),(max-width:600px){.s-arrow{opacity:.9}}
+
+/* how long until the next slide */
+.s-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.10)}
+.s-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--coral),var(--teal))}
+.s-bar.run span{width:100%;transition:width linear}
+
+.s-foot{display:flex;align-items:center;justify-content:center;gap:10px;
+  flex-wrap:wrap;margin-top:18px}
+.dots{display:flex;align-items:center}
+/* 44px tap target, 10px visual */
+.dot{width:44px;height:44px;padding:0;border:0;background:none;cursor:pointer;
+  display:grid;place-items:center}
+.dot span{display:block;width:10px;height:10px;border-radius:30px;
+  background:rgba(255,255,255,.22);transition:width .35s var(--e-out),background .35s}
+.dot:hover span{background:rgba(255,255,255,.45)}
+.dot.is-on span{width:30px;background:var(--coral)}
+.dot:focus-visible span{outline:2px solid var(--teal);outline-offset:3px}
+
+.s-play{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 14px;
+  border:1px solid var(--hairline);border-radius:30px;background:transparent;cursor:pointer;
+  color:var(--muted);font-family:var(--f-body);font-size:.78rem;letter-spacing:.3px;
+  transition:color .25s,border-color .25s}
+.s-play:hover{color:var(--ink);border-color:rgba(255,255,255,.26)}
+.s-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media(max-width:600px){
+  .s-foot{gap:4px}
+  .dot{width:38px}
+  .s-play{width:100%;justify-content:center;margin-top:6px}
+}
+
+/* ============ MOTION ============ */
+#dots{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:100;transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--coral),var(--teal));transform:scaleX(0);pointer-events:none}
+@supports (animation-timeline:scroll()){
+  .progress{animation:bar linear both;animation-timeline:scroll(root)}
+  @keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .glow{animation:glowPar linear both;animation-timeline:scroll(root)}
+  @keyframes glowPar{from{translate:0 0;scale:1}to{translate:0 -260px;scale:1.3}}
+}
+h1{perspective:900px}
+h1 .w,h2 .w{display:inline-block;white-space:nowrap}
+h1 .ch{display:inline-block;will-change:transform,opacity,filter}
+h1.split .ch{opacity:0;transform:translateY(60px) rotateX(-80deg) scale(.88);filter:blur(6px);
+  animation:chIn .9s var(--e-out) forwards}
+@keyframes chIn{60%{filter:blur(0)}to{opacity:1;transform:none;filter:blur(0)}}
+h2 .ch{display:inline-block}
+h2 .ch.sp{white-space:pre}
+.js h2.tw .ch{visibility:hidden}
+.js h2.tw.typed .ch{visibility:visible}
+h2 .caret{display:inline-block;width:3px;height:1em;margin-left:3px;vertical-align:-.12em;background:var(--coral);opacity:0;border-radius:2px}
+.js h2.tw.typing .caret{opacity:1;animation:blink .8s steps(1,end) infinite}
+@keyframes blink{50%{opacity:0}}
+.sec h2{position:relative;text-align:center}
+.rv{transition:opacity .8s var(--e-out),transform .95s var(--e-back)}
+.js .rv{opacity:0;transform:translateY(56px) scale(.97)}
+.js .rv.in{opacity:1;transform:none}
+.js .leaks .leak{opacity:0;transform:translateX(-52px)}
+.js .leaks.in .leak{animation:leakIn .85s var(--e-back) forwards}
+@keyframes leakIn{to{opacity:1;transform:none}}
+.js .leaks.in .leak:nth-child(1){animation-delay:0ms}
+.js .leaks.in .leak:nth-child(2){animation-delay:100ms}
+.js .leaks.in .leak:nth-child(3){animation-delay:200ms}
+.js .leaks.in .leak:nth-child(4){animation-delay:300ms}
+.js .leaks.in .leak:nth-child(5){animation-delay:400ms}
+.js .leaks.in .leak:nth-child(6){animation-delay:500ms}
+.js #work .grid.in .work{animation:popIn .8s var(--e-back) both}
+@keyframes popIn{from{opacity:0;transform:translateY(40px) scale(.94)}to{opacity:1;transform:none}}
+.js #work .grid.in .work:nth-child(1){animation-delay:0ms}
+.js #work .grid.in .work:nth-child(2){animation-delay:80ms}
+.js #work .grid.in .work:nth-child(3){animation-delay:160ms}
+.js #work .grid.in .work:nth-child(4){animation-delay:240ms}
+.js #work .grid.in .work:nth-child(5){animation-delay:320ms}
+.js #work .grid.in .work:nth-child(6){animation-delay:400ms}
+
+/* mobile menu */
+.burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
+  margin-left:-6px;background:none;border:0;cursor:pointer;padding:0}
+.burger span{display:block;width:22px;height:2px;border-radius:2px;background:var(--teal);margin:0 auto;
+  transition:transform .32s var(--e-out),opacity .22s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(min-width:900px){.burger{display:none}}
+.scrim{position:fixed;inset:0;background:rgba(4,4,5,.68);backdrop-filter:blur(3px);z-index:120;opacity:0;transition:opacity .32s}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(82vw,330px);z-index:130;
+  background:linear-gradient(160deg,#15171C 0%,#0A0A0B 100%);border-left:1px solid var(--hairline);
+  padding:84px 26px 32px;transform:translateX(102%);transition:transform .4s var(--e-out);display:flex;flex-direction:column}
+.drawer nav{display:flex;flex-direction:column;position:static;background:none;border:0}
+.drawer a.dl,.drawer .dltog{font-family:var(--f-display);font-weight:600;font-size:1.06rem;color:var(--ink);text-decoration:none;
+  padding:15px 0;border-bottom:1px solid var(--hairline);transition:color .25s,padding-left .25s}
+.drawer a.dl:hover{color:var(--teal);padding-left:7px}
+.drawer .dltog:hover{color:var(--teal)}
+.drawer-close{position:absolute;top:22px;right:20px;width:44px;height:44px;background:none;border:0;color:var(--muted);font-size:1.3rem;cursor:pointer}
+.drawer-close:hover{color:var(--coral)}
+body.locked{overflow:hidden}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .rv,.js .leaks .leak,.js #work .grid .work{opacity:1;transform:none}
+  h1.split .ch{opacity:1;transform:none;filter:none}
+  .js h2.tw .ch{visibility:visible}
+  h2 .caret,#dots,.progress{display:none}
+  .slide,.slide.is-on{transition:none}
+  .mq-row.ltr,.mq-row.rtl{animation:none}
+  .marquee{overflow-x:auto}
+  .s-bar{display:none}
+  .js .rv .num{transform:none}
+}
+</style>
+</head>
+<body>
+<canvas id="dots" aria-hidden="true"></canvas>
+<div class="progress" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="../../" aria-label="Valency, home">
+      <img src="../../assets/brand/valency-logo.webp"
+        srcset="../../assets/brand/valency-logo.webp 1x, ../../assets/brand/valency-logo@2x.webp 2x"
+        width="547" height="120" alt="Valency" fetchpriority="high" decoding="async"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    <!-- Page style nav. These point at the matching section on this page for now,
+         so the preview works. Swap each href to /services/ /work/ /about/ /contact/
+         once those pages exist. -->
+    <div class="nav-links">
+      <a href="../../">Home</a>
+      <!-- the six open the services section for now. Point each at its own
+           page, /services/ai-video and so on, once those pages exist. -->
+      <div class="ddwrap">
+        <button type="button" class="ddbtn" aria-expanded="false" aria-controls="svcmenu" aria-haspopup="true">
+          Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="dd" id="svcmenu" role="menu">
+        <a role="menuitem" href="../../services/ai-video-creation/">AI Video Creation</a>
+        <a role="menuitem" href="../../services/web-development/">Web Design &amp; Development</a>
+        <a role="menuitem" href="../../services/social-media-management/">Social Media Management</a>
+        <a role="menuitem" href="../../services/email-marketing/">Email Marketing</a>
+        <a role="menuitem" href="../../services/meta-google-ads/">Meta &amp; Google Ads</a>
+        <a role="menuitem" href="../../services/seo/">SEO</a>
+        </div>
+      </div>
+      <a href="../../#about">About</a><a href="../../#contact">Contact</a>
+    </div>
+    <a href="../../#contact" class="nav-cta">Let's Talk</a>
+  </div>
+</nav>
+
+<div class="scrim" hidden></div>
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <button class="drawer-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <nav aria-label="Mobile">
+    <a class="dl" href="../../">Home</a>
+    <button type="button" class="dl dltog" aria-expanded="false" aria-controls="drawersvc">
+      Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+    <div class="sub" id="drawersvc"><div class="subin">
+      <a href="../../services/ai-video-creation/">AI Video Creation</a>
+      <a href="../../services/web-development/">Web Design &amp; Development</a>
+      <a href="../../services/social-media-management/">Social Media Management</a>
+      <a href="../../services/email-marketing/">Email Marketing</a>
+      <a href="../../services/meta-google-ads/">Meta &amp; Google Ads</a>
+      <a href="../../services/seo/">SEO</a>
+    </div></div>
+    <a class="dl" href="../../#about">About</a><a class="dl" href="../../#contact">Contact</a>
+  </nav>
+  <a href="../../#contact" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
+</aside>
+
+<!-- ===== SERVICE BANNER ===== -->
+<section class="sbanner" aria-label="Web Design and Development">
+  <div class="wrap">
+    <img src="../../assets/services/02-web-development.webp" width="1600" height="533"
+      alt="Web Design and Development" fetchpriority="high" decoding="async">
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="sec" id="top">
+  <div class="wrap">
+    <div class="rv intro" style="max-width:780px">
+      <div class="eyebrow">What we do</div>
+      <h1 class="shead">Web Design <span class="coral">and Development</span></h1>
+      <p class="lead">A site that carries the brand properly and tells someone what the business does inside ten seconds. Built to communicate, not just to exist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT IT COVERS ===== -->
+<section class="sec sec--grad" id="services">
+  <div class="wrap" style="max-width:920px">
+    <div class="rv intro"><h2>What this covers</h2></div>
+    <ol class="scov rv">
+        <li>
+          <h3>Design and build</h3>
+          <p>Structure, layout and interface designed around what a visitor needs to understand, then built to match.</p>
+        </li>
+        <li>
+          <h3>Mobile first</h3>
+          <p>Most of the traffic arrives on a phone. The phone layout is designed first and the desktop one follows, not the other way round.</p>
+        </li>
+        <li>
+          <h3>Speed</h3>
+          <p>Compressed images, modern formats and a page that loads before someone gives up. Slow sites lose people who were already interested.</p>
+        </li>
+        <li>
+          <h3>Copy that explains the business</h3>
+          <p>Written to be understood by someone who has never heard of you, rather than filled with industry language.</p>
+        </li>
+        <li>
+          <h3>Content management</h3>
+          <p>Handed over so the team can change text, images and pages without coming back to us for every edit.</p>
+        </li>
+        <li>
+          <h3>Analytics and tracking</h3>
+          <p>Set up so you can see what people actually do on the site instead of guessing.</p>
+        </li>
+    </ol>
+    <p class="sclose rv">A website is the one asset you own outright. Everything else is rented from a platform.</p>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="rv intro" style="max-width:660px">
+      <div class="eyebrow">Where creativity creates value</div>
+      <h2>Let us build something <span class="coral">valuable</span>.</h2>
+      <p class="lead">Tell us what you are trying to grow and what is not working right now. We come back with a plan built around that, not a package.</p>
+      <a href="../../#contact" class="btn" style="margin-top:26px">Let's Build Something Valuable</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+
+      <div class="fcol fbrand">
+        <div class="fname"><img src="../../assets/brand/valency-logo.webp"
+          srcset="../../assets/brand/valency-logo.webp 1x, ../../assets/brand/valency-logo@2x.webp 2x"
+          width="547" height="120" alt="Valency" loading="lazy" decoding="async"></div>
+        <div class="ftag">Where Creativity Creates Value.</div>
+        <div class="social">
+          <a href="[PLACEHOLDER]" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="[PLACEHOLDER]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="[PLACEHOLDER]" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <nav class="fcol" aria-label="Services">
+        <h3 class="fhead">What We Do</h3>
+        <a href="../../services/ai-video-creation/">AI Video Creation</a>
+        <a href="../../services/web-development/">Web Design &amp; Development</a>
+        <a href="../../services/social-media-management/">Social Media Management</a>
+        <a href="../../services/email-marketing/">Email Marketing</a>
+        <a href="../../services/meta-google-ads/">Meta &amp; Google Ads</a>
+        <a href="../../services/seo/">SEO</a>
+      </nav>
+
+      <nav class="fcol" aria-label="Company">
+        <h3 class="fhead">Company</h3>
+        <a href="../../">Home</a>
+        <a href="../../#about">About</a>
+        <a href="../../#work">Work</a>
+        <a href="../../#model">How We Work</a>
+        <a href="../../#faq">FAQ</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+
+      <div class="fcol">
+        <h3 class="fhead">Get In Touch</h3>
+        <a href="../../#contact" class="fcontact"><i class="fa-solid fa-envelope" aria-hidden="true"></i>[PLACEHOLDER: email]</a>
+        <a href="../../#contact" class="fcontact"><i class="fa-solid fa-phone" aria-hidden="true"></i>[PLACEHOLDER: phone]</a>
+        <a href="../../#contact" class="btn btn--ghost fbtn">Book a Call</a>
+      </div>
+
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Valency. All rights reserved.</span>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* reveal on scroll, replays on re-entry */
+const revealables=document.querySelectorAll('.rv, .leaks, #work .grid');
+const revealAll=()=>revealables.forEach(el=>el.classList.add('in'));
+if(!('IntersectionObserver' in window)||reduced){ revealAll(); }
+else{
+  const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('in',e.isIntersecting)),{threshold:.12});
+  revealables.forEach(el=>io.observe(el));
+  setTimeout(()=>{ if(!document.querySelector('.rv.in')) revealAll(); },2500);
+}
+
+/* FAQ */
+document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',()=>{
+  const f=b.parentElement, open=f.classList.contains('open');
+  document.querySelectorAll('.faq').forEach(x=>x.classList.remove('open'));
+  if(!open) f.classList.add('open');
+}));
+
+/* hero headline, split by word then character */
+(function(){
+  const h1=document.querySelector('h1');
+  if(!h1||reduced) return;
+  let i=0;
+  const walk=node=>{
+    [...node.childNodes].forEach(n=>{
+      if(n.nodeType===3){
+        const frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(tok=>{
+          if(!tok) return;
+          if(/^\s+$/.test(tok)){ frag.appendChild(document.createTextNode(' ')); return; }
+          const w=document.createElement('span'); w.className='w';
+          [...tok].forEach(c=>{
+            const sp=document.createElement('span'); sp.className='ch'; sp.textContent=c;
+            sp.style.animationDelay=(i++*32)+'ms'; w.appendChild(sp);
+          });
+          frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if(n.nodeType===1 && n.tagName!=='BR'){ walk(n); }
+    });
+  };
+  walk(h1);
+  h1.classList.add('split');
+  const chars=[...h1.querySelectorAll('.ch')];
+  let running=false;
+  const hio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting && !running){
+      running=true;
+      h1.classList.remove('split'); void h1.offsetWidth; h1.classList.add('split');
+      chars.forEach((c,n)=>c.style.animationDelay=(n*32)+'ms');
+      setTimeout(()=>{running=false;}, chars.length*32+1100);
+    }
+  }),{threshold:.5});
+  hio.observe(h1);
+})();
+
+/* typewriter on section headings, replays on re-entry */
+(function(){
+  const splitInto=(node,bucket)=>{
+    [...node.childNodes].forEach(n=>{
+      if(n.nodeType===3){
+        const frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(tok=>{
+          if(!tok) return;
+          if(/^\s+$/.test(tok)){
+            const sp=document.createElement('span'); sp.className='ch sp'; sp.textContent=' ';
+            frag.appendChild(sp); bucket.push(sp); return;
+          }
+          const w=document.createElement('span'); w.className='w';
+          [...tok].forEach(c=>{
+            const sp=document.createElement('span'); sp.className='ch'; sp.textContent=c;
+            w.appendChild(sp); bucket.push(sp);
+          });
+          frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if(n.nodeType===1 && n.tagName!=='BR'){ splitInto(n,bucket); }
+    });
+  };
+  document.querySelectorAll('.sec h2').forEach(h2=>{
+    if(reduced) return;
+    const chars=[]; splitInto(h2,chars);
+    if(!chars.length) return;
+    const caret=document.createElement('span');
+    caret.className='caret'; caret.setAttribute('aria-hidden','true');
+    h2.appendChild(caret); h2.classList.add('tw');
+    h2._reset=()=>{ clearTimeout(h2._t); h2.classList.remove('typing','typed');
+      for(let k=0;k<chars.length;k++) chars[k].style.visibility='hidden'; h2._running=false; };
+    h2._type=()=>{
+      if(h2._running) return;
+      h2._running=true; h2.classList.remove('typed'); h2.classList.add('typing');
+      for(let k=0;k<chars.length;k++) chars[k].style.visibility='hidden';
+      let i=0;
+      const step=()=>{
+        chars[i].style.visibility='visible'; i++;
+        if(i<chars.length){ h2._t=setTimeout(step, chars[i-1].textContent===' '?52:38); }
+        else { h2.classList.remove('typing'); h2.classList.add('typed'); h2._running=false; }
+      };
+      step();
+    };
+  });
+  const tio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.target._type) return;
+    if(e.isIntersecting) e.target._type(); else e.target._reset();
+  }),{threshold:.35});
+  document.querySelectorAll('.sec h2').forEach(h=>tio.observe(h));
+})();
+
+/* counters */
+(function(){
+  const nums=[...document.querySelectorAll('.num')];
+  if(!nums.length) return;
+  const run=el=>{
+    if(el._running) return;
+    const raw=el.dataset.final || el.textContent.trim();
+    el.dataset.final=raw;
+    const m=raw.match(/^([\d.]+)(.*)$/);
+    if(!m) return;                       // placeholders like [N] are left alone
+    const target=parseFloat(m[1]), suffix=m[2], dec=(m[1].split('.')[1]||'').length;
+    if(reduced){ el.textContent=raw; return; }
+    el._running=true;
+    const dur=1100, t0=performance.now();
+    const tick=t=>{
+      const p=Math.min((t-t0)/dur,1), eased=1-Math.pow(1-p,3);
+      el.textContent=(target*eased).toFixed(dec)+suffix;
+      if(p<1){ requestAnimationFrame(tick); } else { el._running=false; }
+    };
+    requestAnimationFrame(tick);
+  };
+  const nio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) run(e.target); }),{threshold:.55});
+  nums.forEach(n=>nio.observe(n));
+})();
+
+/* service cards lean toward the cursor */
+(function(){
+  if(reduced||matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.svc').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect();
+      const rx=((e.clientY-r.top)/r.height-.5)*-6;
+      const ry=((e.clientX-r.left)/r.width-.5)*8;
+      card.classList.add('lean');
+      card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-7px)`;
+    });
+    card.addEventListener('pointerleave',()=>{ card.classList.remove('lean'); card.style.transform=''; });
+  });
+})();
+
+/* mobile drawer */
+(function(){
+  const burger=document.querySelector('.burger'), drawer=document.getElementById('drawer'),
+        scrim=document.querySelector('.scrim'), close=document.querySelector('.drawer-close');
+  if(!burger||!drawer) return;
+  const setOpen=open=>{
+    burger.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open);
+    drawer.style.transform = open ? 'translateX(0)' : 'translateX(102%)';
+    drawer.setAttribute('aria-hidden',!open);
+    document.body.classList.toggle('locked',open);
+    if(open){ scrim.hidden=false; void scrim.offsetWidth; scrim.style.opacity='1'; }
+    else { scrim.style.opacity='0'; setTimeout(()=>{ if(!burger.classList.contains('open')) scrim.hidden=true; },320); }
+  };
+  burger.addEventListener('click',()=>setOpen(!burger.classList.contains('open')));
+  close.addEventListener('click',()=>setOpen(false));
+  scrim.addEventListener('click',()=>setOpen(false));
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  addEventListener('keydown',e=>{ if(e.key==='Escape'&&burger.classList.contains('open')) setOpen(false); });
+  addEventListener('resize',()=>{ if(innerWidth>=900&&burger.classList.contains('open')) setOpen(false); });
+})();
+
+/* ---------- services slideshow ----------
+   Auto advances every 3.5s. Rule from the UX set: auto rotating content must
+   have prev/next and play/pause, must stop on hover and on keyboard focus,
+   and must not auto run at all under prefers-reduced-motion.
+   State is always set directly, never from a transitionend, so hammering the
+   dots can never leave it stuck.                                           */
+(function(){
+  const root=document.getElementById('svcSlides');
+  if(!root) return;
+  const DWELL=3500;
+  const slides=[...root.querySelectorAll('.slide')];
+  const dots=[...root.querySelectorAll('.dot')];
+  const bar=root.querySelector('.s-bar');
+  const fill=bar&&bar.querySelector('span');
+  const play=root.querySelector('.s-play');
+  const live=root.querySelector('.s-live');
+  const label=i=>dots[i].getAttribute('aria-label');
+
+  let at=0, timer=null, paused=reduced, focused=false, onscreen=true;
+
+  const arm=()=>{
+    clearTimeout(timer); timer=null;
+    if(!fill) return;
+    bar.classList.remove('run'); fill.style.transition='none'; fill.style.width='0';
+    void fill.offsetWidth;                       // commit the reset before re-arming
+    if(paused||focused||!onscreen) return;
+    fill.style.transition='width '+DWELL+'ms linear';
+    bar.classList.add('run');
+    timer=setTimeout(()=>go(at+1), DWELL);
+  };
+
+  let settle=null;
+  function go(n, announce){
+    const from=at;
+    at=(n+slides.length)%slides.length;
+    if(from!==at) slides[from].classList.add('was-on');
+    slides.forEach((el,i)=>{
+      const on=i===at;
+      el.classList.toggle('is-on',on);
+      if(on) el.removeAttribute('aria-hidden'); else el.setAttribute('aria-hidden','true');
+    });
+    /* drop the held layer on a timer, never on transitionend, so a burst of
+       clicks can never strand a slide half visible */
+    clearTimeout(settle);
+    settle=setTimeout(()=>slides.forEach(el=>el.classList.remove('was-on')), 900);
+    dots.forEach((d,i)=>{
+      d.classList.toggle('is-on',i===at);
+      d.setAttribute('aria-selected', i===at?'true':'false');
+    });
+    if(announce&&live) live.textContent=label(at);
+    arm();
+  }
+
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{ go(i,true); }));
+  root.querySelector('.s-prev').addEventListener('click',()=>go(at-1,true));
+  root.querySelector('.s-next').addEventListener('click',()=>go(at+1,true));
+
+  const setPlay=()=>{
+    play.innerHTML = paused
+      ? '<i class="fa-solid fa-play" aria-hidden="true"></i><span>Play</span>'
+      : '<i class="fa-solid fa-pause" aria-hidden="true"></i><span>Pause</span>';
+    play.setAttribute('aria-label', paused?'Play the slideshow':'Pause the slideshow');
+  };
+  play.addEventListener('click',()=>{ paused=!paused; setPlay(); arm(); });
+  if(reduced){ setPlay(); }
+
+  /* Deliberately NO pause on hover. The page background reacts to the cursor,
+     so the pointer sits over this element almost all the time and hover pause
+     froze the slideshow permanently. The pause button and keyboard focus pause
+     are the controls. */
+  root.addEventListener('focusin',()=>{focused=true;arm();});
+  root.addEventListener('focusout',e=>{
+    if(!root.contains(e.relatedTarget)){ focused=false; arm(); }
+  });
+
+  /* arrow keys while the dots have focus */
+  root.querySelector('.dots').addEventListener('keydown',e=>{
+    if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight') return;
+    e.preventDefault();
+    go(e.key==='ArrowLeft'?at-1:at+1, true);
+    dots[at].focus();
+  });
+
+  /* do not burn frames or advance unseen */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{ onscreen=es[0].isIntersecting; arm(); },{threshold:.2}).observe(root);
+  }
+  document.addEventListener('visibilitychange',()=>{ onscreen=!document.hidden; arm(); });
+
+  arm();
+})();
+
+/* Showreel. Autoplays muted because no browser allows sound without a gesture,
+   loops, and offers a sound toggle for anyone who wants the music. Pauses when
+   scrolled away so it is not decoding video nobody is looking at. */
+(function(){
+  const v=document.getElementById('reel'); if(!v) return;
+  const btn=document.querySelector('.sndbtn');
+  const small=innerWidth<900;
+  if(small){                                  // phones get the 5.5MB cut, not the 13MB one
+    v.querySelector('source').remove();
+    v.src='assets/video/banner-720.mp4';
+  }
+  if(!reduced){ v.autoplay=true; v.play().catch(()=>{}); }
+
+  btn.addEventListener('click',()=>{
+    const on = v.muted;                       // turning sound ON
+    v.muted = !on;
+    if(on && v.paused) v.play().catch(()=>{});
+    btn.setAttribute('aria-pressed', on?'true':'false');
+    btn.setAttribute('aria-label', on?'Turn sound off':'Turn sound on');
+    btn.querySelector('i').className = on ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+  });
+  btn.setAttribute('aria-label','Turn sound on');
+
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{
+      if(es[0].isIntersecting){ if(!reduced) v.play().catch(()=>{}); }
+      else { v.pause(); }
+    },{threshold:.15}).observe(v);
+  }
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden) v.pause(); });
+})();
+
+/* drawer: Services opens on tap, same as the desktop dropdown */
+(function(){
+  const t=document.querySelector('.drawer .dltog'); if(!t) return;
+  const sub=document.getElementById(t.getAttribute('aria-controls'));
+  const inn=sub.querySelector('.subin');
+  const set=o=>{
+    t.setAttribute('aria-expanded', o?'true':'false');
+    sub.classList.toggle('open',o);
+    if(o){
+      sub.style.height = inn.offsetHeight + 'px';
+      // let it settle to auto so a rotated phone cannot clip it
+      clearTimeout(sub._t); sub._t=setTimeout(()=>{ if(sub.classList.contains('open')) sub.style.height='auto'; },360);
+    } else {
+      clearTimeout(sub._t);
+      sub.style.height = inn.offsetHeight + 'px';
+      void sub.offsetHeight;
+      sub.style.height = '0px';
+    }
+  };
+  t.addEventListener('click',()=>set(t.getAttribute('aria-expanded')!=='true'));
+  // closing the drawer resets it, so it is shut again next time it opens
+  const burger=document.querySelector('.burger');
+  if(burger) burger.addEventListener('click',()=>{ if(t.getAttribute('aria-expanded')==='true') set(false); });
+})();
+
+/* which nav item is white: whichever section you are actually looking at */
+(function(){
+  const map=[['#top','#top'],['#services','#services'],['#about','#about'],['#contact','#contact']];
+  const links=[...document.querySelectorAll('.nav-links a[href^="#"], .drawer a.dl[href^="#"]')];
+  const ddwrap=document.querySelector('.ddwrap');
+  const secs=map.map(([id])=>document.querySelector(id)).filter(Boolean);
+  if(!secs.length) return;
+  let cur=null;
+  const paint=id=>{
+    if(id===cur) return; cur=id;
+    links.forEach(a=>a.classList.toggle('current', a.getAttribute('href')===id));
+    if(ddwrap) ddwrap.classList.toggle('current', id==='#services');
+  };
+  const pick=()=>{
+    const line=innerHeight*0.34;
+    let best='#top';
+    for(const sec of secs){
+      const r=sec.getBoundingClientRect();
+      if(r.top<=line && r.bottom>line) best='#'+sec.id;
+    }
+    // the services slideshow and the work grid both belong to Services
+    const work=document.getElementById('work');
+    if(work){ const r=work.getBoundingClientRect(); if(r.top<=line && r.bottom>line) best='#services'; }
+    paint(best);
+  };
+  let last=0;
+  addEventListener('scroll',()=>{ const t=Date.now(); if(t-last<90) return; last=t; pick(); },{passive:true});
+  addEventListener('resize',pick,{passive:true});
+  pick();
+})();
+
+/* services dropdown: hover on a pointer device, click or keyboard everywhere */
+(function(){
+  const w=document.querySelector('.ddwrap'); if(!w) return;
+  const btn=w.querySelector('.ddbtn'), menu=w.querySelector('.dd');
+  const set=o=>{ w.classList.toggle('open',o); btn.setAttribute('aria-expanded',o?'true':'false'); };
+  btn.addEventListener('click',e=>{ e.stopPropagation(); set(!w.classList.contains('open')); });
+  if(matchMedia('(hover:hover)').matches){
+    w.addEventListener('pointerenter',()=>set(true));
+    w.addEventListener('pointerleave',()=>set(false));
+  }
+  document.addEventListener('click',e=>{ if(!w.contains(e.target)) set(false); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&w.classList.contains('open')){ set(false); btn.focus(); } });
+  menu.addEventListener('click',()=>set(false));
+  w.addEventListener('focusout',e=>{ if(!w.contains(e.relatedTarget)) set(false); });
+})();
+
+/* ============================================================
+   Cursor driven fluid background. Velocity's simulation numbers,
+   our colour: hue advances with distance travelled, so one stroke
+   paints a gradient instead of a single flat hue.
+   ============================================================ */
+(function(){
+
+
+function hsv2rgb(h,s,v){
+  h=((h%1)+1)%1;
+  const i=Math.floor(h*6), f=h*6-i, p=v*(1-s), q=v*(1-f*s), t=v*(1-(1-f)*s);
+  switch(i%6){case 0:return[v,t,p];case 1:return[q,v,p];case 2:return[p,v,t];
+              case 3:return[p,q,v];case 4:return[t,p,v];default:return[v,p,q];}
+}
+const H_CORAL=0.018, H_AMBER=0.085, H_TEAL=0.468;   // your brand hues on the wheel
+
+/* Each mode returns [r,g,b] already scaled. Velocity uses 0.15. Single hue
+   modes can take more, because nothing cancels against them. */
+/* Dye is injected well above the bloom threshold so dense strokes blow out to
+   a white hot core and bloom outward, which is what gives the reference image
+   its depth. Saturation sits under 1 so the core can reach white.            */
+/* The reference image has several hues living inside one plume. Time alone
+   cannot do that, because a whole stroke happens inside one second and the
+   hue barely moves. So hue is driven by DISTANCE TRAVELLED instead: every
+   fraction of the panel you cross advances the hue, which paints a gradient
+   along the stroke no matter how fast or slow you move. A slow time drift is
+   added on top so a stationary wiggle still shifts colour.                  */
+const MODES={
+  // full spectrum, driven by distance travelled. This is the one you picked.
+  spectrum: (travel,lvl)=> hsv2rgb(travel*0.70 + (Date.now()/14000), 0.95, 1).map(v=>v*lvl)
+};
+
+/* What was washing the whole screen was the BLOOM, not the smoke. Bloom
+   blurs the bright pixels once per pass and every pass doubles how far that
+   blur reaches, so at 8 passes the halo covered the full viewport however
+   small the plume was. Four passes keeps the glow sitting on the smoke.    */
+const LEVEL={ dye:0.30, bIter:4, bInt:0.22, bThresh:0.82, splat:0.38, velDis:1.8, dyeDis:4.2 };
+/* Recoloured on every single move event, so the gradient is continuous. */
+
+function fluid(canvas, mode, cfg){
+  const gl = canvas.getContext('webgl2',{alpha:true,depth:false,stencil:false,antialias:false,preserveDrawingBuffer:false})
+          || canvas.getContext('webgl',{alpha:true,depth:false,stencil:false,antialias:false});
+  if(!gl) return false;
+  const is2 = typeof WebGL2RenderingContext!=='undefined' && gl instanceof WebGL2RenderingContext;
+  let halfExt, linear;
+  if(is2){ gl.getExtension('EXT_color_buffer_float'); linear=gl.getExtension('OES_texture_float_linear'); }
+  else { halfExt=gl.getExtension('OES_texture_half_float'); linear=gl.getExtension('OES_texture_half_float_linear'); }
+  const HALF = is2 ? gl.HALF_FLOAT : (halfExt && halfExt.HALF_FLOAT_OES);
+
+  function probe(internal, format, type){
+    const tex=gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D,tex);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    gl.texImage2D(gl.TEXTURE_2D,0,internal,4,4,0,format,type,null);
+    const fbo=gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);
+    const ok=gl.checkFramebufferStatus(gl.FRAMEBUFFER)===gl.FRAMEBUFFER_COMPLETE;
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null); return ok?{internal,format}:null;
+  }
+  let RGBA,RG,R;
+  if(is2){
+    RGBA=probe(gl.RGBA16F,gl.RGBA,HALF)||probe(gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE);
+    RG=probe(gl.RG16F,gl.RG,HALF)||RGBA; R=probe(gl.R16F,gl.RED,HALF)||RGBA;
+  } else { RGBA=probe(gl.RGBA,gl.RGBA,HALF)||probe(gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE); RG=RGBA; R=RGBA; }
+  if(!RGBA) return false;
+  const FILTER = linear ? gl.LINEAR : gl.NEAREST;
+  const TYPE = HALF || gl.UNSIGNED_BYTE;
+
+  const sh=(t,src)=>{const s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);
+    return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null;};
+  const prog=(v,f)=>{const p=gl.createProgram();gl.attachShader(p,v);gl.attachShader(p,f);gl.linkProgram(p);
+    if(!gl.getProgramParameter(p,gl.LINK_STATUS))return null;
+    const u={},n=gl.getProgramParameter(p,gl.ACTIVE_UNIFORMS);
+    for(let i=0;i<n;i++){const nm=gl.getActiveUniform(p,i).name;u[nm]=gl.getUniformLocation(p,nm);}
+    return{p,u};};
+  /* highp in a FRAGMENT shader is optional on older integrated GPUs. Ask the
+     driver what it actually supports rather than assuming, or the shader fails
+     to compile and the whole effect silently does nothing on that machine.
+     The qualifier has to be the same in BOTH shaders. texelSize is declared
+     in the vertex and the fragment shader, and a shared uniform that is highp
+     in one and mediump in the other is a link error, not a compile error, so
+     it fails silently with an empty shader log. */
+  const hp=gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER,gl.HIGH_FLOAT);
+  const P_=(hp&&hp.precision>0)?'highp':'mediump';
+  const VS=sh(gl.VERTEX_SHADER,`precision ${P_} float;attribute vec2 aPosition;
+    varying ${P_} vec2 vUv,vL,vR,vT,vB;uniform vec2 texelSize;
+    void main(){vUv=aPosition*0.5+0.5;vL=vUv-vec2(texelSize.x,0.);vR=vUv+vec2(texelSize.x,0.);
+    vT=vUv+vec2(0.,texelSize.y);vB=vUv-vec2(0.,texelSize.y);gl_Position=vec4(aPosition,0.,1.);}`);
+  const FS=s=>sh(gl.FRAGMENT_SHADER,
+    'precision '+P_+' float;precision '+P_+' sampler2D;varying '+P_+' vec2 vUv,vL,vR,vT,vB;'+s);
+
+  const P={
+    clear: prog(VS,FS(`uniform sampler2D uTexture;uniform float value;void main(){gl_FragColor=value*texture2D(uTexture,vUv);}`)),
+    splat: prog(VS,FS(`uniform sampler2D uTarget;uniform vec2 aspect;uniform vec3 color;uniform vec2 point;uniform float radius;
+      void main(){vec2 p=(vUv-point.xy)*aspect;vec3 s=exp(-dot(p,p)/radius)*color;
+      gl_FragColor=vec4(texture2D(uTarget,vUv).xyz+s,1.);}`)),
+    adv: prog(VS,FS(`uniform sampler2D uVelocity;uniform sampler2D uSource;uniform vec2 texelSize;uniform float dt;uniform float dissipation;
+      void main(){vec2 c=vUv-dt*texture2D(uVelocity,vUv).xy*texelSize;
+      gl_FragColor=texture2D(uSource,c)/(1.0+dissipation*dt);}`)),
+    div: prog(VS,FS(`uniform sampler2D uVelocity;
+      void main(){float L=texture2D(uVelocity,vL).x,Rr=texture2D(uVelocity,vR).x;
+      float T=texture2D(uVelocity,vT).y,B=texture2D(uVelocity,vB).y;vec2 C=texture2D(uVelocity,vUv).xy;
+      if(vL.x<0.0)L=-C.x; if(vR.x>1.0)Rr=-C.x; if(vT.y>1.0)T=-C.y; if(vB.y<0.0)B=-C.y;
+      gl_FragColor=vec4(0.5*(Rr-L+T-B),0.,0.,1.);}`)),
+    curl: prog(VS,FS(`uniform sampler2D uVelocity;
+      void main(){float L=texture2D(uVelocity,vL).y,Rr=texture2D(uVelocity,vR).y;
+      float T=texture2D(uVelocity,vT).x,B=texture2D(uVelocity,vB).x;
+      gl_FragColor=vec4(0.5*(Rr-L-T+B),0.,0.,1.);}`)),
+    vort: prog(VS,FS(`uniform sampler2D uVelocity;uniform sampler2D uCurl;uniform float curl;uniform float dt;
+      void main(){float L=texture2D(uCurl,vL).x,Rr=texture2D(uCurl,vR).x;
+      float T=texture2D(uCurl,vT).x,B=texture2D(uCurl,vB).x,C=texture2D(uCurl,vUv).x;
+      vec2 f=0.5*vec2(abs(T)-abs(B),abs(Rr)-abs(L));f/=length(f)+0.0001;f*=curl*C;f.y*=-1.0;
+      gl_FragColor=vec4(clamp(texture2D(uVelocity,vUv).xy+f*dt,-1000.,1000.),0.,1.);}`)),
+    pres: prog(VS,FS(`uniform sampler2D uPressure;uniform sampler2D uDivergence;
+      void main(){float L=texture2D(uPressure,vL).x,Rr=texture2D(uPressure,vR).x;
+      float T=texture2D(uPressure,vT).x,B=texture2D(uPressure,vB).x;
+      gl_FragColor=vec4((L+Rr+B+T-texture2D(uDivergence,vUv).x)*0.25,0.,0.,1.);}`)),
+    grad: prog(VS,FS(`uniform sampler2D uPressure;uniform sampler2D uVelocity;
+      void main(){float L=texture2D(uPressure,vL).x,Rr=texture2D(uPressure,vR).x;
+      float T=texture2D(uPressure,vT).x,B=texture2D(uPressure,vB).x;
+      gl_FragColor=vec4(texture2D(uVelocity,vUv).xy-vec2(Rr-L,T-B),0.,1.);}`)),
+    pre: prog(VS,FS(`uniform sampler2D uTexture;uniform vec3 curve;uniform float threshold;
+      void main(){vec3 c=texture2D(uTexture,vUv).rgb;
+      float br=max(c.r,max(c.g,c.b));
+      float rq=clamp(br-curve.x,0.0,curve.y); rq=curve.z*rq*rq;
+      c*=max(rq,br-threshold)/max(br,0.0001);
+      gl_FragColor=vec4(c,0.0);}`)),
+    blur: prog(VS,FS(`uniform sampler2D uTexture;
+      void main(){vec4 sum=texture2D(uTexture,vL)+texture2D(uTexture,vR)
+        +texture2D(uTexture,vT)+texture2D(uTexture,vB);
+      gl_FragColor=sum*0.25;}`)),
+    bfin: prog(VS,FS(`uniform sampler2D uTexture;uniform float intensity;
+      void main(){vec4 sum=texture2D(uTexture,vL)+texture2D(uTexture,vR)
+        +texture2D(uTexture,vT)+texture2D(uTexture,vB);
+      gl_FragColor=sum*0.25*intensity;}`)),
+    disp: prog(VS,FS(`uniform sampler2D uTexture;uniform sampler2D uBloom;uniform sampler2D uNoise;
+      uniform vec2 texelSize;uniform vec2 ditherScale;uniform float dither;
+      void main(){vec3 L=texture2D(uTexture,vL).rgb,Rr=texture2D(uTexture,vR).rgb;
+      vec3 T=texture2D(uTexture,vT).rgb,B=texture2D(uTexture,vB).rgb,C=texture2D(uTexture,vUv).rgb;
+      float dx=length(Rr)-length(L), dy=length(T)-length(B);
+      vec3 n=normalize(vec3(dx,dy,length(texelSize))), l=vec3(0.0,0.0,1.0);
+      float diffuse=clamp(dot(n,l)+0.7,0.7,1.0);
+      C.rgb*=diffuse;
+      vec3 bloom=texture2D(uBloom,vUv).rgb;
+      float noise=texture2D(uNoise,vUv*ditherScale).r*2.0-1.0;
+      bloom=pow(max(bloom,vec3(0.0)),vec3(1.0/2.2));   // linear to gamma FIRST
+      bloom=max(bloom+noise*dither,vec3(0.0));         // then dither, or gamma
+      C+=bloom;                                        // blows 1/255 up to 1/13
+      float a=max(C.r,max(C.g,C.b));
+      gl_FragColor=vec4(C,a);}`))
+  };
+  for(const k in P) if(!P[k]) return false;
+
+  const vb=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,vb);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,-1,1,1,1,1,-1]),gl.STATIC_DRAW);
+  const ib=gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ib);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array([0,1,2,0,2,3]),gl.STATIC_DRAW);
+  gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(0);
+  const blit=t=>{
+    if(t==null){gl.viewport(0,0,gl.drawingBufferWidth,gl.drawingBufferHeight);gl.bindFramebuffer(gl.FRAMEBUFFER,null);}
+    else {gl.viewport(0,0,t.width,t.height);gl.bindFramebuffer(gl.FRAMEBUFFER,t.fbo);}
+    gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
+  };
+  function FBO(w,h,f,filt){
+    gl.activeTexture(gl.TEXTURE0);
+    const tex=gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D,tex);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,filt);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,filt);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    gl.texImage2D(gl.TEXTURE_2D,0,f.internal,w,h,0,f.format,TYPE,null);
+    const fbo=gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);
+    gl.viewport(0,0,w,h); gl.clear(gl.COLOR_BUFFER_BIT);
+    return {fbo,width:w,height:h,texelSizeX:1/w,texelSizeY:1/h,
+      attach(i){gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,tex);return i;}};
+  }
+  function DBL(w,h,f,filt){let a=FBO(w,h,f,filt),b=FBO(w,h,f,filt);
+    return{texelSizeX:a.texelSizeX,texelSizeY:a.texelSizeY,
+      get read(){return a},get write(){return b},swap(){const t=a;a=b;b=t;}};}
+
+  /* Quality tiers. Tier 0 is the full thing. The page starts at a tier guessed
+     from the device, then MEASURES its own frame time for the first second and
+     settles on the heaviest tier the machine can actually hold at 60fps, so a
+     fast laptop keeps full quality and a slow one still gets the effect rather
+     than nothing. The dye grid is the dominant cost: it is a full screen pass
+     per frame at that resolution. */
+  const TIERS=[
+    {dye:1024, sim:128, pres:10, bloom:cfg.bIter,                div:2.0},
+    {dye:768,  sim:112, pres:9,  bloom:cfg.bIter,                div:2.0},
+    {dye:512,  sim:96,  pres:7,  bloom:Math.max(3,cfg.bIter-1),  div:2.2},
+    {dye:384,  sim:80,  pres:5,  bloom:3,                        div:2.6},
+    {dye:256,  sim:64,  pres:4,  bloom:2,                        div:3.0}
+  ];
+  const hints=()=>{
+    const cores=navigator.hardwareConcurrency||4, mem=navigator.deviceMemory||4;
+    const px=innerWidth*innerHeight*(devicePixelRatio||1);
+    if(cores<=2||mem<=2) return 4;
+    if(cores<=4||mem<=4) return 3;
+    if(px>2600000) return 1;                      // big or hidpi screen, more pixels to push
+    return 0;
+  };
+  let tier=hints();
+  let SIM, DYE, dye, vel, divg, curlF, pres;
+  function build(t){
+    const T=TIERS[t]; SIM=T.sim; DYE=T.dye;
+    dye=DBL(DYE,DYE,RGBA,FILTER); vel=DBL(SIM,SIM,RG,FILTER);
+    divg=FBO(SIM,SIM,R,gl.NEAREST); curlF=FBO(SIM,SIM,R,gl.NEAREST); pres=DBL(SIM,SIM,R,gl.NEAREST);
+  }
+  build(tier);
+
+  /* bloom: Dobryakov's chain, using the plugin's own numbers
+     (they ship them as FLASH_* with the feature switched off)
+     8 iterations, 256 base resolution, 0.8 intensity, 0.6 threshold, 0.7 knee */
+  const B_ITER=cfg.bIter, B_RES=256, B_INT=cfg.bInt, B_THRESH=cfg.bThresh, B_KNEE=0.60;
+  /* How far the render is downscaled before being stretched over the screen.
+     On a phone the old 2.2 meant drawing at 170px wide and blowing it up over a
+     1125px panel, which is what showed as blocky pixels and a grainy box around
+     the plume. A small screen is cheap to draw near 1:1, so it is capped much
+     tighter there. The simulation grid is what costs, and that is unchanged. */
+  /* read live, not once at load, so rotating a phone or dragging a desktop
+     window across the breakpoint picks up the right resolution */
+  const pickDiv = t => Math.min(TIERS[t].div, innerWidth<900 ? 1.15 : 99);
+  let bloomUse=TIERS[tier].bloom, presIt=TIERS[tier].pres, rdiv=pickDiv(tier);
+  /* The bloom buffers must match the screen's shape. They used to be square,
+     so on a tall phone a square glow was stretched over a 375x812 viewport:
+     the halo came out as a hard edged rectangle with blocky corners, which is
+     the box the plume appeared to be sitting on. Built from the canvas aspect
+     and rebuilt whenever the canvas changes shape. */
+  let bloomTarget=null, bloomChain=[], bloomAspect=0;
+  function buildBloom(){
+    const a = canvas.height/canvas.width;
+    if(bloomTarget && Math.abs(a-bloomAspect)<0.01) return;
+    bloomAspect=a;
+    const bw=B_RES, bh=Math.max(8,Math.round(B_RES*a));
+    bloomTarget=FBO(bw,bh,RGBA,FILTER);
+    bloomChain=[];
+    for(let i=0;i<B_ITER;i++){
+      const w=bw>>(i+1), h=bh>>(i+1);
+      if(w<4||h<4) break;            // stop before a level is too coarse to upsample cleanly
+      bloomChain.push(FBO(w,h,RGBA,FILTER));
+    }
+  }
+  // small blue-ish noise tile for dithering, generated rather than downloaded
+  const NS=64, nd=new Uint8Array(NS*NS*4);
+  for(let i=0;i<NS*NS;i++){ const v=Math.random()*255|0; nd[i*4]=nd[i*4+1]=nd[i*4+2]=v; nd[i*4+3]=255; }
+  const noiseTex=gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D,noiseTex);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.REPEAT);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,NS,NS,0,gl.RGBA,gl.UNSIGNED_BYTE,nd);
+  const noiseAttach=i=>{gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,noiseTex);return i;};
+
+  function applyBloom(src,dst){
+    const nLv=Math.max(2,Math.min(bloomUse,bloomChain.length));
+    if(nLv<2) return;
+    let last=dst;
+    gl.disable(gl.BLEND);
+    // prefilter: keep only what is above the threshold, with a soft knee
+    const knee=B_THRESH*B_KNEE+0.0001;
+    gl.useProgram(P.pre.p);
+    gl.uniform3f(P.pre.u.curve, B_THRESH-knee, knee*2, 0.25/knee);
+    gl.uniform1f(P.pre.u.threshold, B_THRESH);
+    gl.uniform1i(P.pre.u.uTexture, src.attach(0));
+    blit(last);
+    // downsample
+    gl.useProgram(P.blur.p);
+    for(let i=0;i<nLv;i++){
+      const b=bloomChain[i];
+      gl.uniform2f(P.blur.u.texelSize,last.texelSizeX,last.texelSizeY);
+      gl.uniform1i(P.blur.u.uTexture,last.attach(0));
+      blit(b); last=b;
+    }
+    // upsample, adding each level back
+    gl.blendFunc(gl.ONE,gl.ONE); gl.enable(gl.BLEND);
+    for(let i=nLv-2;i>=0;i--){
+      const b=bloomChain[i];
+      gl.uniform2f(P.blur.u.texelSize,last.texelSizeX,last.texelSizeY);
+      gl.uniform1i(P.blur.u.uTexture,last.attach(0));
+      blit(b); last=b;
+    }
+    gl.disable(gl.BLEND);
+    gl.useProgram(P.bfin.p);
+    gl.uniform2f(P.bfin.u.texelSize,last.texelSizeX,last.texelSizeY);
+    gl.uniform1i(P.bfin.u.uTexture,last.attach(0));
+    gl.uniform1f(P.bfin.u.intensity,B_INT);
+    blit(dst);
+  }
+
+  const resize=()=>{   // half CSS resolution by default, as the plugin does
+    rdiv=pickDiv(tier);
+    const w=Math.max(2,Math.round(innerWidth/rdiv)), h=Math.max(2,Math.round(innerHeight/rdiv));
+    if(canvas.width!==w||canvas.height!==h){ canvas.width=w; canvas.height=h; buildBloom(); }
+  };
+  resize(); buildBloom();
+
+  function splat(x,y,dx,dy,col){
+    gl.useProgram(P.splat.p);
+    gl.uniform1i(P.splat.u.uTarget, vel.read.attach(0));
+    /* scale the LONGER side only, so the blob stays round whichever way the
+       screen is turned. Scaling x by w/h squashed it into a vertical smear on
+       a portrait phone, which is why touch never looked like the desktop. */
+    const aw=canvas.width, ah=canvas.height;
+    gl.uniform2f(P.splat.u.aspect, Math.max(1,aw/ah), Math.max(1,ah/aw));
+    gl.uniform2f(P.splat.u.point,x,y);
+    gl.uniform3f(P.splat.u.color,dx,dy,0);
+    gl.uniform1f(P.splat.u.radius, cfg.splat/100);
+    blit(vel.write); vel.swap();
+    gl.uniform1i(P.splat.u.uTarget, dye.read.attach(0));
+    gl.uniform3f(P.splat.u.color,col[0],col[1],col[2]);
+    blit(dye.write); dye.swap();
+  }
+
+  let last=performance.now(), idle=0, running=true;
+  let pt={px:0,py:0,travel:0,init:false};
+
+  /* Watch real frame cost and drop a tier if this machine cannot hold it.
+     Only ever steps down, and only while the effect is actually working, so a
+     brief stall from something else on the page cannot ratchet it to nothing. */
+  let samples=[], governed=false, graceUntil=performance.now()+600;
+  function govern(frameMs){
+    if(governed||performance.now()<graceUntil) return;
+    samples.push(frameMs);
+    if(samples.length<40) return;
+    samples.sort((a,b)=>a-b);
+    const median=samples[samples.length>>1];
+    samples.length=0;
+    if(median>19 && tier<TIERS.length-1){     // under ~52fps, step down and re-measure
+      tier++;
+      const T=TIERS[tier];
+      bloomUse=T.bloom; presIt=T.pres; rdiv=pickDiv(tier);
+      build(tier); resize();
+      graceUntil=performance.now()+500;
+      if(window.valencyFX) window.valencyFX.tier=tier;
+    } else if(median<=19){
+      governed=true;                           // comfortable here, stop adjusting
+      if(window.valencyFX) window.valencyFX.tier=tier;
+    }
+  }
+
+  function step(){
+    const now=performance.now(); const frameMs=now-last;
+    const dt=Math.min(frameMs/1000,0.0166); last=now;
+    if(frameMs<200) govern(frameMs);      // ignore tab-switch sized gaps
+    resize(); gl.disable(gl.BLEND);
+    gl.useProgram(P.curl.p); gl.uniform2f(P.curl.u.texelSize,vel.texelSizeX,vel.texelSizeY);
+    gl.uniform1i(P.curl.u.uVelocity,vel.read.attach(0)); blit(curlF);
+    gl.useProgram(P.vort.p); gl.uniform2f(P.vort.u.texelSize,vel.texelSizeX,vel.texelSizeY);
+    gl.uniform1i(P.vort.u.uVelocity,vel.read.attach(0)); gl.uniform1i(P.vort.u.uCurl,curlF.attach(1));
+    gl.uniform1f(P.vort.u.curl,5); gl.uniform1f(P.vort.u.dt,dt); blit(vel.write); vel.swap();
+    gl.useProgram(P.div.p); gl.uniform2f(P.div.u.texelSize,vel.texelSizeX,vel.texelSizeY);
+    gl.uniform1i(P.div.u.uVelocity,vel.read.attach(0)); blit(divg);
+    gl.useProgram(P.clear.p); gl.uniform1i(P.clear.u.uTexture,pres.read.attach(0));
+    gl.uniform1f(P.clear.u.value,0.8); blit(pres.write); pres.swap();
+    gl.useProgram(P.pres.p); gl.uniform2f(P.pres.u.texelSize,vel.texelSizeX,vel.texelSizeY);
+    gl.uniform1i(P.pres.u.uDivergence,divg.attach(0));
+    for(let i=0;i<presIt;i++){ gl.uniform1i(P.pres.u.uPressure,pres.read.attach(1)); blit(pres.write); pres.swap(); }
+    gl.useProgram(P.grad.p); gl.uniform2f(P.grad.u.texelSize,vel.texelSizeX,vel.texelSizeY);
+    gl.uniform1i(P.grad.u.uPressure,pres.read.attach(0)); gl.uniform1i(P.grad.u.uVelocity,vel.read.attach(1));
+    blit(vel.write); vel.swap();
+    gl.useProgram(P.adv.p); gl.uniform2f(P.adv.u.texelSize,vel.texelSizeX,vel.texelSizeY);
+    gl.uniform1i(P.adv.u.uVelocity,vel.read.attach(0)); gl.uniform1i(P.adv.u.uSource,vel.read.attach(0));
+    gl.uniform1f(P.adv.u.dt,dt); gl.uniform1f(P.adv.u.dissipation,cfg.velDis); blit(vel.write); vel.swap();
+    gl.uniform1i(P.adv.u.uVelocity,vel.read.attach(0)); gl.uniform1i(P.adv.u.uSource,dye.read.attach(1));
+    gl.uniform1f(P.adv.u.dissipation,cfg.dyeDis); blit(dye.write); dye.swap();
+    applyBloom(dye.read, bloomTarget);
+    gl.enable(gl.BLEND); gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+    gl.useProgram(P.disp.p);
+    gl.uniform2f(P.disp.u.texelSize,1/canvas.width,1/canvas.height);
+    gl.uniform2f(P.disp.u.ditherScale,canvas.width/NS,canvas.height/NS);
+    gl.uniform1f(P.disp.u.dither, 1.0/255.0/Math.max(1,rdiv));   // less grain when magnified
+    gl.uniform1i(P.disp.u.uTexture,dye.read.attach(0));
+    gl.uniform1i(P.disp.u.uBloom,bloomTarget.attach(1));
+    gl.uniform1i(P.disp.u.uNoise,noiseAttach(2));
+    blit(null);
+    if(++idle>260) running=false;
+    if(running) requestAnimationFrame(step);
+  }
+  const kick=()=>{ if(!running){running=true;last=performance.now();requestAnimationFrame(step);} idle=0; };
+
+  /* ONE handler. Desktop pointer and phone touch both call this with a
+     position, so the behaviour is identical: same force multiplier, same
+     travel accumulation, same splat. Nothing is special cased for mobile. */
+  function move(px,py){
+    const w=innerWidth, h=innerHeight;
+    if(!pt.init){pt.px=px;pt.py=py;pt.init=true;}
+    const mx=px-pt.px, my=py-pt.py;
+    const dx=5*mx, dy=5*-my;                      // their exact force multiplier
+    pt.travel = (pt.travel||0) + Math.hypot(mx,my)/w;   // screen widths crossed
+    pt.px=px; pt.py=py;
+    const col=MODES[mode](pt.travel, cfg.dye);
+    if(dx||dy) splat(px/w, 1-py/h, dx, dy, col);
+    kick();
+  }
+
+  addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch') return;            // touch comes through below
+    move(e.clientX, e.clientY);
+  },{passive:true});
+
+  /* Touch events are used rather than pointermove because the browser stops
+     sending pointermove once a drag turns into a scroll. They feed the same
+     function, so a finger behaves exactly as a cursor does. */
+  addEventListener('touchstart',e=>{
+    const t=e.touches[0]; if(!t) return;
+    pt.init=false;                                 // start fresh, as entering the window does
+    move(t.clientX, t.clientY);
+  },{passive:true});
+  addEventListener('touchmove',e=>{
+    const t=e.touches[0]; if(!t) return;
+    move(t.clientX, t.clientY);
+  },{passive:true});
+  const drop=()=>{pt.init=false;};
+  addEventListener('touchend',drop,{passive:true});
+  addEventListener('touchcancel',drop,{passive:true});
+  document.addEventListener('pointerleave',drop);
+
+  /* the loop sleeps when idle, so a window resize while asleep would leave the
+     canvas at its old size until the next pointer move */
+  addEventListener('resize',()=>{ resize(); kick(); },{passive:true});
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden) idle=1e9; });
+  requestAnimationFrame(step);
+  return true;
+}
+
+/* Report what happened. Open the console on any machine and read
+   window.valencyFX to see exactly why the background is or is not running. */
+(function(){
+  const cv=document.getElementById('dots');
+  const fx={reducedMotion:reduced, canvas:!!cv, webgl:null, running:false, reason:''};
+  window.valencyFX=fx;
+  if(!cv){ fx.reason='no canvas element'; return; }
+  const test=cv.getContext('webgl2')||cv.getContext('webgl');
+  fx.webgl = test ? (test instanceof WebGL2RenderingContext ? 'webgl2' : 'webgl1') : false;
+  if(reduced){
+    fx.reason="reduce motion is turned on in this computer's accessibility settings, so the moving version is off on purpose";
+    lite(true); return;
+  }
+  if(!fx.webgl){
+    fx.reason='this browser has no WebGL, usually hardware acceleration is switched off';
+    lite(false); return;
+  }
+  if(fluid(cv,'spectrum',LEVEL)){ fx.running=true; fx.mode='fluid'; fx.reason='ok'; }
+  else {
+    fx.reason='WebGL is present but the simulation could not start on this GPU';
+    lite(false);
+  }
+  if(!fx.running) console.warn('[valency] '+fx.reason+' (showing the light version instead)');
+
+  /* The light version. No WebGL, no simulation, just a glow that follows the
+     pointer, so the lowest end machine still gets a live background instead
+     of nothing. still=true means hold it motionless for reduce motion. */
+  function lite(still){
+    const d=document.createElement('div'); d.id='fxlite'; d.setAttribute('aria-hidden','true');
+    document.body.appendChild(d);
+    fx.mode = still ? 'static' : 'lite';
+    if(still){ d.className='still'; return; }
+    let x=innerWidth/2, y=innerHeight*0.42, cx=x, cy=y, raf=null, seen=false;
+    const draw=()=>{
+      cx+=(x-cx)*0.085; cy+=(y-cy)*0.085;
+      d.style.transform='translate3d('+cx.toFixed(1)+'px,'+cy.toFixed(1)+'px,0)';
+      raf=(Math.abs(x-cx)>0.5||Math.abs(y-cy)>0.5) ? requestAnimationFrame(draw) : null;
+    };
+    d.style.transform='translate3d('+cx+'px,'+cy+'px,0)';
+    addEventListener('pointermove',e=>{
+      x=e.clientX; y=e.clientY;
+      if(!seen){ seen=true; d.classList.add('on'); }
+      if(!raf) raf=requestAnimationFrame(draw);
+    },{passive:true});
+    setTimeout(()=>d.classList.add('on'),400);   // visible even before the first move
+    fx.running=true;
+  }
+})();
+})();
+</script>
+</body>
+</html>
