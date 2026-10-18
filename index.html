@@ -1635,6 +1635,7 @@ function fluid(canvas, mode, cfg){
   const kick=()=>{ if(!running){running=true;last=performance.now();requestAnimationFrame(step);} idle=0; };
 
   addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch') return;      // touch is handled below, do not splat twice
     const w=innerWidth, h=innerHeight;
     const px=e.clientX, py=e.clientY;
     if(!pt.init){pt.px=px;pt.py=py;pt.init=true;}
@@ -1648,28 +1649,30 @@ function fluid(canvas, mode, cfg){
   },{passive:true});
   document.addEventListener('pointerleave',()=>{pt.init=false;});
 
-  /* A phone has no cursor, so the effect was nearly invisible there: a finger
-     drag scrolls the page and the few pointermove events it fires are swallowed
-     by the scroll. On a touch screen the SCROLL itself drives the fluid instead.
-     Each scroll step pushes dye across the screen, travelling further for a
-     faster flick, so the colour gradient builds the same way it does from a
-     cursor on desktop. */
-  if(matchMedia('(hover:none)').matches || (navigator.maxTouchPoints||0)>0){
-    let lastY=scrollY, phase=0.37, sTravel=0;
-    addEventListener('scroll',()=>{
-      const d=scrollY-lastY; lastY=scrollY;
-      if(!d) return;
-      const w=innerWidth, h=innerHeight;
-      const step=Math.max(-90,Math.min(90,d));          // clamp a violent flick
-      phase+=step/Math.max(h,1)*0.9;                    // wander across the width
-      const x=0.5+Math.sin(phase*2.1)*0.33;
-      const y=0.5-Math.cos(phase*1.3)*0.26;
-      sTravel+=Math.abs(step)/w;
-      const col=MODES[mode](sTravel, cfg.dye);
-      splat(x, y, step*2.6, -step*3.4, col);
-      kick();
-    },{passive:true});
-  }
+  /* A phone has no cursor. Touch events carry the finger position, and unlike
+     pointermove they keep firing while the page scrolls, so the dye lands under
+     the finger and follows it, exactly as it follows the cursor on desktop. */
+  let tp=null;
+  addEventListener('touchstart',e=>{
+    const t=e.touches[0]; if(!t) return;
+    tp={x:t.clientX,y:t.clientY};
+    // no force, so a tap just sets colour down where you touched
+    splat(t.clientX/innerWidth, 1-t.clientY/innerHeight, 0, 0, MODES[mode](pt.travel, cfg.dye));
+    kick();
+  },{passive:true});
+  addEventListener('touchmove',e=>{
+    const t=e.touches[0]; if(!t) return;
+    if(!tp){ tp={x:t.clientX,y:t.clientY}; return; }
+    const w=innerWidth, h=innerHeight;
+    const mx=t.clientX-tp.x, my=t.clientY-tp.y;
+    tp={x:t.clientX,y:t.clientY};
+    if(!mx && !my) return;
+    pt.travel = (pt.travel||0) + Math.hypot(mx,my)/w;
+    splat(t.clientX/w, 1-t.clientY/h, 5*mx, 5*-my, MODES[mode](pt.travel, cfg.dye));
+    kick();
+  },{passive:true});
+  addEventListener('touchend',()=>{tp=null;},{passive:true});
+  addEventListener('touchcancel',()=>{tp=null;},{passive:true});
 
   /* the loop sleeps when idle, so a window resize while asleep would leave the
      canvas at its old size until the next pointer move */
