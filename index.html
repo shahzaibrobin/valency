@@ -1413,7 +1413,7 @@ function fluid(canvas, mode, cfg){
         +texture2D(uTexture,vT)+texture2D(uTexture,vB);
       gl_FragColor=sum*0.25*intensity;}`)),
     disp: prog(VS,FS(`uniform sampler2D uTexture;uniform sampler2D uBloom;uniform sampler2D uNoise;
-      uniform vec2 texelSize;uniform vec2 ditherScale;
+      uniform vec2 texelSize;uniform vec2 ditherScale;uniform float dither;
       void main(){vec3 L=texture2D(uTexture,vL).rgb,Rr=texture2D(uTexture,vR).rgb;
       vec3 T=texture2D(uTexture,vT).rgb,B=texture2D(uTexture,vB).rgb,C=texture2D(uTexture,vUv).rgb;
       float dx=length(Rr)-length(L), dy=length(T)-length(B);
@@ -1423,7 +1423,7 @@ function fluid(canvas, mode, cfg){
       vec3 bloom=texture2D(uBloom,vUv).rgb;
       float noise=texture2D(uNoise,vUv*ditherScale).r*2.0-1.0;
       bloom=pow(max(bloom,vec3(0.0)),vec3(1.0/2.2));   // linear to gamma FIRST
-      bloom=max(bloom+noise/255.0,vec3(0.0));          // then dither, or gamma
+      bloom=max(bloom+noise*dither,vec3(0.0));         // then dither, or gamma
       C+=bloom;                                        // blows 1/255 up to 1/13
       float a=max(C.r,max(C.g,C.b));
       gl_FragColor=vec4(C,a);}`))
@@ -1493,7 +1493,15 @@ function fluid(canvas, mode, cfg){
      (they ship them as FLASH_* with the feature switched off)
      8 iterations, 256 base resolution, 0.8 intensity, 0.6 threshold, 0.7 knee */
   const B_ITER=cfg.bIter, B_RES=256, B_INT=cfg.bInt, B_THRESH=cfg.bThresh, B_KNEE=0.60;
-  let bloomUse=TIERS[tier].bloom, presIt=TIERS[tier].pres, rdiv=TIERS[tier].div;
+  /* How far the render is downscaled before being stretched over the screen.
+     On a phone the old 2.2 meant drawing at 170px wide and blowing it up over a
+     1125px panel, which is what showed as blocky pixels and a grainy box around
+     the plume. A small screen is cheap to draw near 1:1, so it is capped much
+     tighter there. The simulation grid is what costs, and that is unchanged. */
+  /* read live, not once at load, so rotating a phone or dragging a desktop
+     window across the breakpoint picks up the right resolution */
+  const pickDiv = t => Math.min(TIERS[t].div, innerWidth<900 ? 1.15 : 99);
+  let bloomUse=TIERS[tier].bloom, presIt=TIERS[tier].pres, rdiv=pickDiv(tier);
   const bloomTarget=FBO(B_RES,B_RES,RGBA,FILTER);
   const bloomChain=[];
   for(let i=0;i<B_ITER;i++){
@@ -1550,6 +1558,7 @@ function fluid(canvas, mode, cfg){
   }
 
   const resize=()=>{   // half CSS resolution by default, as the plugin does
+    rdiv=pickDiv(tier);
     const w=Math.max(2,Math.round(innerWidth/rdiv)), h=Math.max(2,Math.round(innerHeight/rdiv));
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
   };
@@ -1585,7 +1594,7 @@ function fluid(canvas, mode, cfg){
     if(median>19 && tier<TIERS.length-1){     // under ~52fps, step down and re-measure
       tier++;
       const T=TIERS[tier];
-      bloomUse=T.bloom; presIt=T.pres; rdiv=T.div;
+      bloomUse=T.bloom; presIt=T.pres; rdiv=pickDiv(tier);
       build(tier); resize();
       graceUntil=performance.now()+500;
       if(window.valencyFX) window.valencyFX.tier=tier;
@@ -1625,6 +1634,7 @@ function fluid(canvas, mode, cfg){
     gl.useProgram(P.disp.p);
     gl.uniform2f(P.disp.u.texelSize,1/canvas.width,1/canvas.height);
     gl.uniform2f(P.disp.u.ditherScale,canvas.width/NS,canvas.height/NS);
+    gl.uniform1f(P.disp.u.dither, 1.0/255.0/Math.max(1,rdiv));   // less grain when magnified
     gl.uniform1i(P.disp.u.uTexture,dye.read.attach(0));
     gl.uniform1i(P.disp.u.uBloom,bloomTarget.attach(1));
     gl.uniform1i(P.disp.u.uNoise,noiseAttach(2));
