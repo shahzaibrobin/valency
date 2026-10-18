@@ -175,6 +175,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .vframe .ph{text-align:center;padding:22px;color:var(--teal);font-family:var(--f-display);font-size:.72rem;
   font-weight:700;letter-spacing:1.8px;text-transform:uppercase;line-height:1.9}
 .vframe .ph i{display:block;font-size:2.2rem;margin-bottom:12px;color:var(--coral)}
+/* placeholder links: visible, but inert until the real URL arrives,
+   so clicking one does not land on a 404 */
+a[data-pending]{cursor:not-allowed;opacity:.5}
 /* ---------- service pages ---------- */
 .sbanner{padding:26px 0 0}
 .sbanner img{display:block;width:100%;height:auto;border-radius:var(--radius);
@@ -693,9 +696,9 @@ body.locked{overflow:hidden}
           width="547" height="120" alt="Valency" loading="lazy" decoding="async"></div>
         <div class="ftag">Where Creativity Creates Value.</div>
         <div class="social">
-          <a href="[PLACEHOLDER]" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-          <a href="[PLACEHOLDER]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-          <a href="[PLACEHOLDER]" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a data-pending aria-disabled="true" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a data-pending aria-disabled="true" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a data-pending aria-disabled="true" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
         </div>
       </div>
 
