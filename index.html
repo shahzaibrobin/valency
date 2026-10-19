@@ -211,20 +211,24 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
   .sclose{margin-top:24px;font-size:.9rem}
 }
 
-/* leadership: two people side by side */
-.team{display:grid;gap:30px;grid-template-columns:1fr;margin-top:44px}
-@media(min-width:820px){.team{grid-template-columns:1fr 1fr;gap:38px}}
-.person{display:flex;flex-direction:column;align-items:flex-start}
-.pphoto{width:100%;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;
-  border:1px solid var(--hairline);background:linear-gradient(140deg,#15171C,#0C0D10);margin-bottom:22px}
-.pphoto img{width:100%;height:100%;object-fit:cover;display:block}
-.pphoto .ph{width:100%;height:100%}
-.person h3{font-family:var(--f-display);font-size:1.35rem;font-weight:600;letter-spacing:-.02em;
-  color:var(--head);margin-bottom:5px}
+/* about page: alternating rows, text one side, portrait the other */
+.prow{display:grid;gap:26px;grid-template-columns:1fr;align-items:center;margin-top:56px}
+@media(min-width:860px){
+  .prow{grid-template-columns:1fr 1fr;gap:56px;margin-top:84px}
+  /* flipped row puts the image first visually without moving it in the markup,
+     so the reading order stays name then portrait for a screen reader */
+  .prow--flip .ptext{order:2}
+  .prow--flip .pimg{order:1}
+}
+.pimg{border-radius:var(--radius);overflow:hidden;border:1px solid var(--hairline);
+  background:linear-gradient(140deg,#15171C,#0C0D10)}
+.pimg img{width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover}
+.ptext h3{font-family:var(--f-display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:600;
+  letter-spacing:-.025em;color:var(--head);margin-bottom:6px}
 .prole{font-size:.74rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  color:var(--coral);margin-bottom:15px;display:block}
-.person p{color:var(--muted);font-size:.95rem}
-.ptags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0}
+  color:var(--coral);margin-bottom:16px;display:block}
+.ptext p{color:var(--muted);font-size:.97rem;max-width:52ch}
+.ptags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0}
 .ptags li{font-size:.74rem;color:var(--muted);border:1px solid var(--hairline);
   border-radius:30px;padding:6px 13px}
 
@@ -621,7 +625,7 @@ body.locked{overflow:hidden}
         <a role="menuitem" href="services/seo/">SEO</a>
         </div>
       </div>
-      <a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="about/">About</a><a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="nav-cta">Let's Talk</a>
   </div>
@@ -642,7 +646,7 @@ body.locked{overflow:hidden}
       <a href="services/meta-google-ads/">Meta &amp; Google Ads</a>
       <a href="services/seo/">SEO</a>
     </div></div>
-    <a class="dl" href="#about">About</a><a class="dl" href="#contact">Contact</a>
+    <a class="dl" href="about/">About</a><a class="dl" href="#contact">Contact</a>
   </nav>
   <a href="#contact" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
 </aside>
@@ -978,46 +982,6 @@ body.locked{overflow:hidden}
   </div>
 </section>
 
-<!-- ===== ABOUT / FOUNDER ===== -->
-<section class="sec sec--grad" id="about">
-  <div class="wrap">
-    <div class="rv intro" style="max-width:700px">
-      <div class="eyebrow">Who you are dealing with</div>
-      <h2>The two people <span class="coral">behind the work</span>.</h2>
-      <p class="lead">No account manager in between. You talk to the people who decide what gets made and who makes it.</p>
-    </div>
-
-    <div class="team rv">
-      <article class="person">
-        <div class="pphoto"><div class="ph"><i class="fa-solid fa-user" aria-hidden="true"></i>[PLACEHOLDER]<br>Founder photo</div></div>
-        <h3>Robin Joseph</h3>
-        <span class="prole">Founder and CEO</span>
-        <p>[PLACEHOLDER: founder story. The questionnaire says this must be the real motivation behind starting Voice to Value and the specific experiences that led to the rebrand into Valency. It should be confirmed with the client, not written for them.]</p>
-      </article>
-
-      <article class="person">
-        <div class="pphoto">
-          <img src="assets/team/timmer-haroon.webp"
-            srcset="assets/team/timmer-haroon.webp 1x, assets/team/timmer-haroon@2x.webp 2x"
-            width="520" height="520" alt="Timmer Haroon, Co-Founder" loading="lazy" decoding="async">
-        </div>
-        <h3>Timmer Haroon</h3>
-        <span class="prole">Co-Founder</span>
-        <p>Owns growth and the client relationship end to end, from the first conversation through to the partnerships that come out of it. Directs AI video production and the social output, and runs the team's workflow so quality does not depend on who happens to be free that week.</p>
-        <ul class="ptags">
-          <li>Growth and partnerships</li>
-          <li>Creative direction</li>
-          <li>Delivery and quality</li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="rv" style="text-align:center;margin-top:40px">
-      <a href="#contact" class="btn">Talk to us about your brand</a>
-    </div>
-  </div>
-</section>
-
 <!-- ===== FAQ ===== -->
 <section class="sec" id="faq">
   <div class="wrap" style="max-width:820px">
@@ -1087,7 +1051,7 @@ body.locked{overflow:hidden}
       <nav class="fcol" aria-label="Company">
         <h3 class="fhead">Company</h3>
         <a href="#top">Home</a>
-        <a href="#about">About</a>
+        <a href="about/">About</a>
         <a href="#work">Work</a>
         <a href="#model">How We Work</a>
         <a href="#faq">FAQ</a>

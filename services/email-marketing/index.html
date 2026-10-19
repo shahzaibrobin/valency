@@ -212,20 +212,24 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
   .sclose{margin-top:24px;font-size:.9rem}
 }
 
-/* leadership: two people side by side */
-.team{display:grid;gap:30px;grid-template-columns:1fr;margin-top:44px}
-@media(min-width:820px){.team{grid-template-columns:1fr 1fr;gap:38px}}
-.person{display:flex;flex-direction:column;align-items:flex-start}
-.pphoto{width:100%;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;
-  border:1px solid var(--hairline);background:linear-gradient(140deg,#15171C,#0C0D10);margin-bottom:22px}
-.pphoto img{width:100%;height:100%;object-fit:cover;display:block}
-.pphoto .ph{width:100%;height:100%}
-.person h3{font-family:var(--f-display);font-size:1.35rem;font-weight:600;letter-spacing:-.02em;
-  color:var(--head);margin-bottom:5px}
+/* about page: alternating rows, text one side, portrait the other */
+.prow{display:grid;gap:26px;grid-template-columns:1fr;align-items:center;margin-top:56px}
+@media(min-width:860px){
+  .prow{grid-template-columns:1fr 1fr;gap:56px;margin-top:84px}
+  /* flipped row puts the image first visually without moving it in the markup,
+     so the reading order stays name then portrait for a screen reader */
+  .prow--flip .ptext{order:2}
+  .prow--flip .pimg{order:1}
+}
+.pimg{border-radius:var(--radius);overflow:hidden;border:1px solid var(--hairline);
+  background:linear-gradient(140deg,#15171C,#0C0D10)}
+.pimg img{width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover}
+.ptext h3{font-family:var(--f-display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:600;
+  letter-spacing:-.025em;color:var(--head);margin-bottom:6px}
 .prole{font-size:.74rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  color:var(--coral);margin-bottom:15px;display:block}
-.person p{color:var(--muted);font-size:.95rem}
-.ptags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0}
+  color:var(--coral);margin-bottom:16px;display:block}
+.ptext p{color:var(--muted);font-size:.97rem;max-width:52ch}
+.ptags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0}
 .ptags li{font-size:.74rem;color:var(--muted);border:1px solid var(--hairline);
   border-radius:30px;padding:6px 13px}
 
@@ -622,7 +626,7 @@ body.locked{overflow:hidden}
         <a role="menuitem" href="../../services/seo/">SEO</a>
         </div>
       </div>
-      <a href="../../#about">About</a><a href="../../#contact">Contact</a>
+      <a href="../../about/">About</a><a href="../../#contact">Contact</a>
     </div>
     <a href="../../#contact" class="nav-cta">Let's Talk</a>
   </div>
@@ -643,7 +647,7 @@ body.locked{overflow:hidden}
       <a href="../../services/meta-google-ads/">Meta &amp; Google Ads</a>
       <a href="../../services/seo/">SEO</a>
     </div></div>
-    <a class="dl" href="../../#about">About</a><a class="dl" href="../../#contact">Contact</a>
+    <a class="dl" href="../../about/">About</a><a class="dl" href="../../#contact">Contact</a>
   </nav>
   <a href="../../#contact" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
 </aside>
@@ -746,7 +750,7 @@ body.locked{overflow:hidden}
       <nav class="fcol" aria-label="Company">
         <h3 class="fhead">Company</h3>
         <a href="../../">Home</a>
-        <a href="../../#about">About</a>
+        <a href="../../about/">About</a>
         <a href="../../#work">Work</a>
         <a href="../../#model">How We Work</a>
         <a href="../../#faq">FAQ</a>
