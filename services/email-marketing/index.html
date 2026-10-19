@@ -178,6 +178,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 /* placeholder links: visible, but inert until the real URL arrives,
    so clicking one does not land on a 404 */
 a[data-pending]{cursor:not-allowed;opacity:.5}
+/* two buttons side by side, stacked on a narrow screen */
+.btnrow{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center}
+@media(max-width:520px){.btnrow{flex-direction:column}.btnrow .btn{width:100%;justify-content:center}}
 /* ---------- service pages ---------- */
 .sbanner{padding:26px 0 0}
 .sbanner img{display:block;width:100%;height:auto;border-radius:var(--radius);
