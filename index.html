@@ -246,13 +246,14 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
   transition:margin-left .28s var(--e-out)}
 .av:first-child{margin-left:0}
 /* each tucks behind the one before it, and the count sits on top at the end */
-.av.a1{z-index:5} .av.a2{z-index:4} .av.a3{z-index:3} .av.a4{z-index:2} .av.a5{z-index:1}
-.av.more{z-index:6}
-/* the two brand colours exactly as supplied, alternating */
-.av.a1,.av.a3,.av.a5{background:var(--coral)}
-.av.a2,.av.a4{background:var(--teal)}
-.av img{width:27px;height:auto;max-height:22px;object-fit:contain;
-  filter:brightness(0) invert(1);opacity:.96}
+.avatars .av:nth-child(1){z-index:5} .avatars .av:nth-child(2){z-index:4}
+.avatars .av:nth-child(3){z-index:3} .avatars .av:nth-child(4){z-index:2}
+.avatars .av:nth-child(5){z-index:1} .av.more{z-index:6}
+/* each logo in its own colours, on the background it was drawn for:
+   a white disc for dark artwork, a near black one for light artwork */
+.av--light{background:#fff}
+.av--dark{background:#121317}
+.av img{width:30px;height:30px;object-fit:contain;display:block}
 .av.more{background:#15171B;box-shadow:inset 0 0 0 1px rgba(255,107,90,.45);
   font-family:var(--f-display);font-size:.72rem;font-weight:700;color:var(--coral)}
 /* spread apart on hover so each one can be seen */
@@ -265,7 +266,7 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
 @media(max-width:600px){
   .trust{gap:11px}
   .av{width:35px;height:35px;margin-left:-15px}
-  .av img{width:24px;max-height:19px}
+  .av img{width:26px;height:26px}
 }
 .hero-proof .pill{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:8px}
 .hero-proof i{color:var(--teal)}
@@ -687,11 +688,11 @@ body.locked{overflow:hidden}
             <span>Trusted by 9 brands</span>
           </div>
           <div class="avatars" aria-hidden="true">
-            <span class="av a1"><img src="assets/logos/brewchi.webp" alt="Brewchi" loading="lazy" decoding="async"></span>
-            <span class="av a2"><img src="assets/logos/erhan.webp" alt="Erhan" loading="lazy" decoding="async"></span>
-            <span class="av a3"><img src="assets/logos/midas.webp" alt="Midas Barbers" loading="lazy" decoding="async"></span>
-            <span class="av a4"><img src="assets/logos/lumi-skin.webp" alt="Lumi Skin" loading="lazy" decoding="async"></span>
-            <span class="av a5"><img src="assets/logos/yogi.webp" alt="Yogi" loading="lazy" decoding="async"></span>
+            <span class="av av--light"><img src="assets/logos/colour/brewchi.webp" alt="Brewchi" loading="lazy" decoding="async"></span>
+            <span class="av av--light"><img src="assets/logos/colour/erhan.webp" alt="Erhan" loading="lazy" decoding="async"></span>
+            <span class="av av--dark"><img src="assets/logos/colour/midas.webp" alt="Midas Barbers" loading="lazy" decoding="async"></span>
+            <span class="av av--dark"><img src="assets/logos/colour/lumi-skin.webp" alt="Lumi Skin" loading="lazy" decoding="async"></span>
+            <span class="av av--dark"><img src="assets/logos/colour/yogi.webp" alt="Yogi" loading="lazy" decoding="async"></span>
             <span class="av more">9+</span>
           </div>
         </div>
