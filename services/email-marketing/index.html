@@ -215,6 +215,15 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
   .sclose{margin-top:24px;font-size:.9rem}
 }
 
+/* "What I lead" list on the about page */
+.leadlabel{font-family:var(--f-display);font-size:.72rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--teal-2);margin:26px 0 12px}
+.leads{margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.leads>div{display:flex;flex-direction:column;gap:2px;padding-left:14px;
+  border-left:2px solid rgba(255,107,90,.45)}
+.leads dt{font-family:var(--f-display);font-size:.92rem;font-weight:600;color:var(--ink)}
+.leads dd{margin:0;font-size:.9rem;color:var(--muted)}
+
 /* about page: alternating rows, text one side, portrait the other */
 .prow{display:grid;gap:26px;grid-template-columns:1fr;align-items:center;margin-top:56px}
 @media(min-width:860px){

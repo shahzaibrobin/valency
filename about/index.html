@@ -215,6 +215,15 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
   .sclose{margin-top:24px;font-size:.9rem}
 }
 
+/* "What I lead" list on the about page */
+.leadlabel{font-family:var(--f-display);font-size:.72rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--teal-2);margin:26px 0 12px}
+.leads{margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.leads>div{display:flex;flex-direction:column;gap:2px;padding-left:14px;
+  border-left:2px solid rgba(255,107,90,.45)}
+.leads dt{font-family:var(--f-display);font-size:.92rem;font-weight:600;color:var(--ink)}
+.leads dd{margin:0;font-size:.9rem;color:var(--muted)}
+
 /* about page: alternating rows, text one side, portrait the other */
 .prow{display:grid;gap:26px;grid-template-columns:1fr;align-items:center;margin-top:56px}
 @media(min-width:860px){
@@ -670,14 +679,15 @@ body.locked{overflow:hidden}
 
 <!-- ===== HOW IT STARTED ===== -->
 <section class="sec sec--grad" id="story">
-  <div class="wrap" style="max-width:760px">
+  <div class="wrap" style="max-width:780px">
     <div class="rv intro">
       <div class="eyebrow">How it started</div>
       <h2>From Voice to Value, <span class="coral">to Valency</span>.</h2>
     </div>
-    <div class="rv" style="margin-top:22px">
-      <p class="lead">The agency began life as Voice to Value and rebranded to Valency as the work widened from a single service into the six we run today.</p>
-      <p class="lead" style="margin-top:16px">[PLACEHOLDER: the real reason the agency was started, and the specific experiences that led to the rebrand. This has to come from Robin, not be written for him.]</p>
+    <div class="rv" style="margin-top:24px">
+      <p class="lead">Robin Joseph founded Voice to Value in 2024 with one goal: help businesses turn creative ideas into something that earns its place. Two years of working closely with clients across different industries shaped how the agency approaches marketing, creativity and growth.</p>
+      <p class="lead" style="margin-top:18px">In 2026 that became Valency. The name change is not cosmetic. It marks the point where creativity, technology and strategy stopped being three separate services and started being one way of working: smarter execution, AI used where it genuinely speeds things up, and a connected approach instead of six disconnected ones.</p>
+      <p class="lead" style="margin-top:18px">Valency is the chemistry term for how many bonds an element can form. It is the right name for an agency built on the idea that the value only shows up in what the parts make together.</p>
     </div>
   </div>
 </section>
@@ -696,12 +706,16 @@ body.locked{overflow:hidden}
       <div class="ptext">
         <h3>Robin Joseph</h3>
         <span class="prole">Founder and CEO</span>
-        <p>[PLACEHOLDER: a short paragraph on Robin, in his own words. What he did before this, and what he decides here day to day.]</p>
-        <ul class="ptags">
-          <li>Direction</li>
-          <li>Client work</li>
-          <li>The standard</li>
-        </ul>
+        <p>I founded Voice to Value in 2024 with a clear goal: help businesses turn creative ideas into meaningful value. Working closely with clients across different industries since then has shaped how I approach marketing, creativity and business growth.</p>
+        <p style="margin-top:14px">In 2026 I am evolving Voice to Value into Valency, a new chapter built around the idea that creativity, technology and strategy work best when they come together.</p>
+        <p style="margin-top:14px">Today I lead the direction of our work across AI video creation, web design and development, social media management, paid advertising, SEO and email marketing. My focus is understanding each client's goals, building the right strategy, and making sure every part of the work meets a high standard.</p>
+        <p style="margin-top:14px">For me Valency is more than a new name. It is the next stage of what we are building: a team that combines creative thinking, modern technology and consistent execution to help businesses move forward.</p>
+        <h4 class="leadlabel">What I lead</h4>
+        <dl class="leads">
+          <div><dt>Direction</dt><dd>Setting the creative and strategic vision.</dd></div>
+          <div><dt>Client work</dt><dd>Turning business goals into practical marketing solutions.</dd></div>
+          <div><dt>The standard</dt><dd>Staying hands on, refining the details, and pushing for work we can stand behind.</dd></div>
+        </dl>
       </div>
       <div class="pimg">
         <img src="../assets/team/robin-joseph.webp"
