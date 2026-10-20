@@ -323,6 +323,25 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
 }
 
 /* problem list */
+/* contact page: form beside the direct ways to reach them */
+.cwrap{display:grid;gap:26px;grid-template-columns:1fr;margin-top:40px;align-items:start}
+@media(min-width:900px){.cwrap{grid-template-columns:1.25fr .85fr;gap:44px}}
+.cform{margin-top:0}
+.cside{border:1px solid var(--hairline);border-radius:var(--radius);padding:26px 22px;
+  background:rgba(20,184,166,.045)}
+.csh{font-family:var(--f-display);font-size:1.12rem;font-weight:600;color:var(--head);margin-bottom:8px}
+.csp{font-size:.9rem;color:var(--muted);margin-bottom:20px}
+.crow{display:flex;align-items:center;gap:13px;padding:12px 0;text-decoration:none;
+  border-top:1px solid var(--hairline);transition:padding-left .25s var(--e-out)}
+.crow:first-of-type{border-top:0}
+.crow:hover{padding-left:6px}
+.cico{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  background:rgba(255,107,90,.13);color:var(--coral);font-size:.95rem;transition:background .25s,color .25s}
+.crow:hover .cico{background:var(--coral);color:#0A0A0B}
+.cmeta{display:flex;flex-direction:column;line-height:1.35;min-width:0}
+.cmeta b{font-family:var(--f-display);font-size:.9rem;font-weight:600;color:var(--ink)}
+.cmeta span{font-size:.82rem;color:var(--muted);overflow-wrap:anywhere}
+
 /* contact form */
 .cform{margin-top:34px;text-align:left}
 .frow{display:grid;gap:16px;grid-template-columns:1fr}
@@ -681,13 +700,9 @@ body.locked{overflow:hidden}
         srcset="assets/brand/valency-logo.webp 1x, assets/brand/valency-logo@2x.webp 2x"
         width="547" height="120" alt="Valency" fetchpriority="high" decoding="async"></a>
     <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
-    <!-- Page style nav. These point at the matching section on this page for now,
-         so the preview works. Swap each href to /services/ /work/ /about/ /contact/
-         once those pages exist. -->
+    <!-- Page style nav. Home stays an in page anchor, the rest are real pages. -->
     <div class="nav-links">
       <a href="#top">Home</a>
-      <!-- the six open the services section for now. Point each at its own
-           page, /services/ai-video and so on, once those pages exist. -->
       <div class="ddwrap">
         <button type="button" class="ddbtn" aria-expanded="false" aria-controls="svcmenu" aria-haspopup="true">
           Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
@@ -700,9 +715,9 @@ body.locked{overflow:hidden}
         <a role="menuitem" href="services/seo/">SEO</a>
         </div>
       </div>
-      <a href="about/">About</a><a href="#contact">Contact</a>
+      <a href="about/">About</a><a href="contact/">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta">Let's Talk</a>
+    <a href="contact/" class="nav-cta">Let's Talk</a>
   </div>
 </nav>
 
@@ -721,9 +736,9 @@ body.locked{overflow:hidden}
       <a href="services/meta-google-ads/">Meta &amp; Google Ads</a>
       <a href="services/seo/">SEO</a>
     </div></div>
-    <a class="dl" href="about/">About</a><a class="dl" href="#contact">Contact</a>
+    <a class="dl" href="about/">About</a><a class="dl" href="contact/">Contact</a>
   </nav>
-  <a href="#contact" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
+  <a href="contact/" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
 </aside>
 
 <!-- ===== TOP VIDEO BANNER (full bleed, edge to edge) ===== -->
@@ -750,7 +765,7 @@ body.locked{overflow:hidden}
       <div class="eyebrow">Creative &amp; Digital Growth Agency</div>
       <h1>Look as good online as you already are <span class="coral">in real life</span>.</h1>
       <p class="lead" style="margin-bottom:28px">Valency brings video, social, email and web under one creative team. So the marketing finally says what the business behind it is actually worth.</p>
-      <a href="#contact" class="btn">Let's Build Something Valuable</a>
+      <a href="contact/" class="btn">Let's Build Something Valuable</a>
       <div class="fud"><i class="fa-solid fa-circle-check"></i>Tell us your goals and we come back with a plan, not a template.</div>
       <div class="hero-proof">
         <div class="trust">
@@ -1039,7 +1054,7 @@ body.locked{overflow:hidden}
     </div>
     </div>
     <div class="rv" style="margin-top:30px;text-align:center">
-      <a href="#contact" class="btn">Let's Build Something Valuable</a>
+      <a href="contact/" class="btn">Let's Build Something Valuable</a>
     </div>
   </div>
 </section>
@@ -1119,7 +1134,7 @@ body.locked{overflow:hidden}
       </figure>
     </div>
     <div class="rv" style="margin-top:30px;text-align:center">
-      <a href="#contact" class="btn btn--ghost">Start a conversation</a>
+      <a href="contact/" class="btn btn--ghost">Start a conversation</a>
     </div>
   </div>
 </section>
@@ -1178,43 +1193,16 @@ body.locked{overflow:hidden}
 </section>
 
 <!-- ===== FINAL CTA ===== -->
-<section class="sec sec--surface" id="contact">
+<section class="sec sec--surface" id="cta">
   <div class="glow glow--coral" style="top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px"></div>
   <div class="wrap" style="max-width:700px">
     <div class="rv intro">
       <div class="eyebrow">Where creativity creates value</div>
       <h2>Let's build something <span class="coral">valuable</span>.</h2>
-      <p class="lead">Tell us about the business, what you are trying to grow, and what is not working right now. We will come back with a plan built around that, not a package.</p>
+      <p class="lead">Tell us about the business, what you are trying to grow, and what is not working right now. We come back with a plan built around that, not a package.</p>
+      <div style="margin-top:28px"><a href="contact/" class="btn">Start a conversation</a></div>
+      <div class="fud"><i class="fa-solid fa-circle-check"></i>No obligation, and no pressure to take every service.</div>
     </div>
-
-    <form class="cform rv" action="https://formsubmit.co/hello@voicetovalue.site" method="POST" novalidate>
-      <input type="hidden" name="_subject" value="New enquiry from valenccy.com">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <!-- bots fill this, people never see it -->
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hpot">
-
-      <div class="frow">
-        <div class="fld">
-          <label for="f-name">Name</label>
-          <input id="f-name" name="Name" type="text" placeholder="John Smith" autocomplete="name" required>
-        </div>
-        <div class="fld">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="Email" type="email" placeholder="you@company.com" autocomplete="email" required>
-        </div>
-      </div>
-      <div class="fld">
-        <label for="f-biz">Business Name</label>
-        <input id="f-biz" name="Business" type="text" placeholder="Your Company Ltd." autocomplete="organization">
-      </div>
-      <div class="fld">
-        <label for="f-msg">Message</label>
-        <textarea id="f-msg" name="Message" rows="5" placeholder="Tell us about your goals..." required></textarea>
-      </div>
-      <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
-      <p class="fnote">Or email <a href="mailto:hello@voicetovalue.site">hello@voicetovalue.site</a> or message us on <a href="https://wa.me/923312521753" target="_blank" rel="noopener">WhatsApp</a>. No obligation, and no pressure to take every service.</p>
-    </form>
   </div>
 </section>
 
@@ -1251,7 +1239,7 @@ body.locked{overflow:hidden}
         <a href="#work">Work</a>
         <a href="#model">How We Work</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="contact/">Contact</a>
       </nav>
 
       <div class="fcol">
@@ -1259,7 +1247,7 @@ body.locked{overflow:hidden}
         <a href="mailto:hello@voicetovalue.site" class="fcontact"><i class="fa-solid fa-envelope" aria-hidden="true"></i>hello@voicetovalue.site</a>
         <a href="https://wa.me/923312521753" target="_blank" rel="noopener" class="fcontact"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>+92 331 2521753</a>
         <a href="tel:+923312521753" class="fcontact"><i class="fa-solid fa-phone" aria-hidden="true"></i>+92 331 2521753</a>
-        <a href="#contact" class="btn btn--ghost fbtn">Book a Call</a>
+        <a href="contact/" class="btn btn--ghost fbtn">Book a Call</a>
       </div>
 
     </div>
@@ -1351,7 +1339,7 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
       } else if(n.nodeType===1 && n.tagName!=='BR'){ splitInto(n,bucket); }
     });
   };
-  document.querySelectorAll('.sec h2').forEach(h2=>{
+  document.querySelectorAll('.sec h2:not(.csh)').forEach(h2=>{
     if(reduced) return;
     const chars=[]; splitInto(h2,chars);
     if(!chars.length) return;
@@ -1621,11 +1609,31 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
   if(burger) burger.addEventListener('click',()=>{ if(t.getAttribute('aria-expanded')==='true') set(false); });
 })();
 
+/* on a real page (about, contact, a service) the nav item for the page you are on
+   stays white; the scroll spy below only ever touches in-page # links, so the two
+   never fight over the same element */
+(function(){
+  const norm=u=>u.replace(/index\.html$/,'').replace(/\/?$/,'/');
+  const here=norm(location.pathname);
+  const sel='.nav-links a[href]:not([href^="#"]), .drawer a.dl[href]:not([href^="#"])';
+  document.querySelectorAll(sel).forEach(a=>{
+    const h=a.getAttribute('href');
+    if(!h||/^(https?:|mailto:|tel:)/.test(h)) return;
+    if(norm(new URL(h,location.href).pathname)===here)a.classList.add('current');
+  });
+  // a service page has no nav link of its own, so light up the Services menu instead
+  const dd=document.querySelector('.ddwrap');
+  if(dd && /\/services\/[^/]+\/$/.test(here)) dd.classList.add('current');
+})();
+
 /* which nav item is white: whichever section you are actually looking at */
 (function(){
   const map=[['#top','#top'],['#services','#services'],['#about','#about'],['#contact','#contact']];
   const links=[...document.querySelectorAll('.nav-links a[href^="#"], .drawer a.dl[href^="#"]')];
   const ddwrap=document.querySelector('.ddwrap');
+  // sub pages have no in-page nav links, so there is nothing to spy on and the
+  // menu stays lit by the page you are on
+  if(!links.length) return;
   const secs=map.map(([id])=>document.querySelector(id)).filter(Boolean);
   if(!secs.length) return;
   let cur=null;
