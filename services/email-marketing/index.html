@@ -324,6 +324,25 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
 }
 
 /* problem list */
+/* written testimonials */
+.tgrid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:760px){.tgrid{grid-template-columns:repeat(3,1fr);gap:20px}}
+.tcard{margin:0;display:flex;flex-direction:column;border:1px solid var(--hairline);
+  border-radius:var(--radius);padding:26px 22px;background:rgba(20,184,166,.035)}
+.tstars{display:flex;gap:3px;color:var(--coral);font-size:.72rem;margin-bottom:16px}
+.tcard blockquote{margin:0;flex:1}
+.tcard blockquote p{font-size:.92rem;color:var(--ink);line-height:1.62}
+.tcard blockquote p+p{margin-top:12px;color:var(--muted)}
+.tcard figcaption{display:flex;align-items:center;gap:12px;margin-top:22px;
+  padding-top:18px;border-top:1px solid var(--hairline)}
+.tlogo{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  background:#121317;border:1px solid var(--hairline);overflow:hidden}
+.tlogo img{width:26px;height:26px;object-fit:contain}
+.tlogo--txt{font-family:var(--f-display);font-weight:700;color:var(--teal-2);font-size:1rem}
+.tmeta{display:flex;flex-direction:column;line-height:1.3}
+.tmeta b{font-family:var(--f-display);font-size:.92rem;font-weight:600;color:var(--ink)}
+.tmeta span{font-size:.78rem;color:var(--muted)}
+
 /* problem and answer, side by side on desktop and stacked on a phone */
 .swap{display:grid;gap:22px;grid-template-columns:1fr;margin-top:40px}
 @media(min-width:900px){.swap{grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}}

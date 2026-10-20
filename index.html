@@ -323,6 +323,25 @@ a[data-pending]{cursor:not-allowed;opacity:.5}
 }
 
 /* problem list */
+/* written testimonials */
+.tgrid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:760px){.tgrid{grid-template-columns:repeat(3,1fr);gap:20px}}
+.tcard{margin:0;display:flex;flex-direction:column;border:1px solid var(--hairline);
+  border-radius:var(--radius);padding:26px 22px;background:rgba(20,184,166,.035)}
+.tstars{display:flex;gap:3px;color:var(--coral);font-size:.72rem;margin-bottom:16px}
+.tcard blockquote{margin:0;flex:1}
+.tcard blockquote p{font-size:.92rem;color:var(--ink);line-height:1.62}
+.tcard blockquote p+p{margin-top:12px;color:var(--muted)}
+.tcard figcaption{display:flex;align-items:center;gap:12px;margin-top:22px;
+  padding-top:18px;border-top:1px solid var(--hairline)}
+.tlogo{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  background:#121317;border:1px solid var(--hairline);overflow:hidden}
+.tlogo img{width:26px;height:26px;object-fit:contain}
+.tlogo--txt{font-family:var(--f-display);font-weight:700;color:var(--teal-2);font-size:1rem}
+.tmeta{display:flex;flex-direction:column;line-height:1.3}
+.tmeta b{font-family:var(--f-display);font-size:.92rem;font-weight:600;color:var(--ink)}
+.tmeta span{font-size:.78rem;color:var(--muted)}
+
 /* problem and answer, side by side on desktop and stacked on a phone */
 .swap{display:grid;gap:22px;grid-template-columns:1fr;margin-top:40px}
 @media(min-width:900px){.swap{grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}}
@@ -1031,12 +1050,43 @@ body.locked{overflow:hidden}
     <div class="rv intro" style="max-width:700px">
       <div class="eyebrow">In their words</div>
       <h2>What it is like to <span class="coral">work with us</span>.</h2>
-      <p class="lead">Not written blurbs we could have typed ourselves. Clients on camera, saying it in their own words.</p>
+      <p class="lead">Their words, not ours. Sent unprompted, kept as written.</p>
     </div>
-    <div class="grid g3 rv" style="margin-top:38px">
-      <div class="vframe" style="aspect-ratio:4/5"><div class="ph"><i class="fa-solid fa-play"></i>[PLACEHOLDER]<br>Video testimonial 1<br>Name · Company</div></div>
-      <div class="vframe" style="aspect-ratio:4/5"><div class="ph"><i class="fa-solid fa-play"></i>[PLACEHOLDER]<br>Video testimonial 2<br>Name · Company</div></div>
-      <div class="vframe" style="aspect-ratio:4/5"><div class="ph"><i class="fa-solid fa-play"></i>[PLACEHOLDER]<br>Video testimonial 3<br>Name · Company</div></div>
+    <div class="tgrid rv" style="margin-top:38px">
+      <figure class="tcard">
+        <div class="tstars" aria-label="Five out of five"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>
+          <p>Robin and his team replaced several vendors for us. A video production company, an email agency, outside marketing help and a graphic designer, each in their own lane, none of them seeing the whole picture. All of that now sits with one team, and the difference is not only efficiency. The work is coherent.</p>
+          <p>The communication is what I would single out. I have never had to chase anything. Questions are answered immediately, work arrives when they say it will, nothing sits.</p>
+          <p>They have made us a better company.</p>
+        </blockquote>
+        <figcaption>
+          <span class="tlogo"><img src="assets/logos/colour/yogi.webp" alt="" loading="lazy" decoding="async"></span>
+          <span class="tmeta"><b>Jeff O&rsquo;Shea</b><span>Founder and CEO, Yogi</span></span>
+        </figcaption>
+      </figure>
+      <figure class="tcard">
+        <div class="tstars" aria-label="Five out of five"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>
+          <p>We have seen a clear improvement in our website visibility and rankings since working with you. Our organic traffic has increased, and we are getting more relevant inquiries through our website.</p>
+          <p>You have been professional, proactive, and great at explaining the process in a simple way. The keyword strategy, content optimization, and technical fixes have all made a real difference for our business.</p>
+        </blockquote>
+        <figcaption>
+          <span class="tlogo tlogo--txt">S</span>
+          <span class="tmeta"><b>Suleman</b><span>RE Media Growth Assistants</span></span>
+        </figcaption>
+      </figure>
+      <figure class="tcard">
+        <div class="tstars" aria-label="Five out of five"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>
+          <p>Working with Robin and his team has been a great experience. They have helped us create high quality, professional video ads that allow us to attract more potential clients and strengthen our online presence.</p>
+          <p>Their creativity, attention to detail, and ability to bring our vision to life have made a real difference in our marketing efforts. Robin is professional, responsive, and genuinely cares about helping businesses grow.</p>
+        </blockquote>
+        <figcaption>
+          <span class="tlogo"><img src="assets/logos/colour/lineage.webp" alt="" loading="lazy" decoding="async"></span>
+          <span class="tmeta"><b>Lineage Financial Group</b><span>Client</span></span>
+        </figcaption>
+      </figure>
     </div>
     <div class="rv" style="margin-top:30px;text-align:center">
       <a href="#contact" class="btn btn--ghost">Start a conversation</a>
