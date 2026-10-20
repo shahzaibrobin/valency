@@ -79,13 +79,16 @@ p{color:var(--muted);margin-bottom:14px} p:last-child{margin-bottom:0}
 .btn{position:relative;overflow:hidden;display:block;width:100%;text-align:center;
   background:linear-gradient(135deg,var(--coral),var(--coral-2));color:#0A0A0B;
   font-family:var(--f-display);font-weight:700;font-size:1rem;padding:17px 32px;border-radius:50px;
-  text-decoration:none;box-shadow:0 10px 34px rgba(255,107,90,.26);transition:transform .25s,box-shadow .25s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 16px 46px rgba(255,107,90,.4)}
+  text-decoration:none;transition:transform .25s,box-shadow .25s;
+  box-shadow:0 10px 34px rgba(255,107,90,.26), 0 0 30px rgba(255,107,90,.34)}
+.btn:hover{transform:translateY(-3px);
+  box-shadow:0 16px 46px rgba(255,107,90,.42), 0 0 46px rgba(255,107,90,.5)}
 .btn::after{content:"";position:absolute;inset:0;transform:translateX(-110%) skewX(-18deg);
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transition:transform .75s var(--e-out)}
 .btn:hover::after{transform:translateX(110%) skewX(-18deg)}
-.btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--hairline);box-shadow:none}
-.btn--ghost:hover{border-color:var(--teal);box-shadow:none}
+.btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--hairline);
+  box-shadow:0 0 22px rgba(20,184,166,.14)}
+.btn--ghost:hover{border-color:var(--teal);box-shadow:0 0 34px rgba(20,184,166,.3)}
 @media(min-width:640px){.btn{display:inline-block;width:auto}}
 .fud{font-size:.84rem;color:var(--muted);margin-top:14px}
 .fud i{color:var(--teal);margin-right:7px}
@@ -112,7 +115,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-
 .nav-links a:hover,.ddbtn:hover{color:var(--coral-2)}
 .nav-links a.current,.ddwrap.current .ddbtn{color:#fff}
 .nav-cta{margin-left:28px;font-family:var(--f-display);font-size:.8rem;font-weight:700;color:#0A0A0B;background:var(--coral);
+  box-shadow:0 0 24px rgba(255,107,90,.34);transition:box-shadow .25s;
   padding:0 20px;height:44px;display:inline-flex;align-items:center;border-radius:40px;text-decoration:none;white-space:nowrap}
+.nav-cta:hover{box-shadow:0 0 38px rgba(255,107,90,.55)}
 .logo{display:flex;align-items:center;text-decoration:none;flex:0 0 auto;margin-right:auto}
 /* logo left, burger and the button together on the right */
 .burger{margin-left:14px}
