@@ -24,7 +24,7 @@ NO INVENTED DATA. Every stat, logo, testimonial and client name is a
 
 PLACEHOLDERS TO FILL
   hero video · client logos ×8 · work videos ×6 · testimonial videos ×3
-  stat row x4
+  stat row ×4 · founder name, photo and story · contact email, phone, socials
 =====================================================================
 -->
 <html lang="en">
@@ -718,7 +718,7 @@ body.locked{overflow:hidden}
       </div>
       <a href="../about/">About</a><a href="../contact/">Contact</a>
     </div>
-    <span class="nav-cta">Let's Talk</span>
+    <a href="../contact/" class="nav-cta">Let's Talk</a>
   </div>
 </nav>
 
@@ -739,7 +739,7 @@ body.locked{overflow:hidden}
     </div></div>
     <a class="dl" href="../about/">About</a><a class="dl" href="../contact/">Contact</a>
   </nav>
-  <span class="btn" style="margin-top:22px">Let's Build Something Valuable</span>
+  <a href="../contact/" class="btn" style="margin-top:22px">Let's Build Something Valuable</a>
 </aside>
 
 <!-- ===== CONTACT ===== -->
@@ -751,7 +751,62 @@ body.locked{overflow:hidden}
       <h1 class="shead">Let's build something <span class="coral">valuable.</span></h1>
       <p class="lead">Tell us about the business, what you are trying to grow, and what is not working right now. We come back with a plan built around that, not a package.</p>
     </div>
-
+
+    <div class="cwrap">
+      <form class="cform rv" action="https://formsubmit.co/hello@voicetovalue.site" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New enquiry from valenccy.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <!-- bots fill this, people never see it -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hpot">
+
+        <div class="frow">
+          <div class="fld">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="Name" type="text" placeholder="John Smith" autocomplete="name" required>
+          </div>
+          <div class="fld">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="Email" type="email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="fld">
+          <label for="f-biz">Business Name</label>
+          <input id="f-biz" name="Business" type="text" placeholder="Your Company Ltd." autocomplete="organization">
+        </div>
+        <div class="fld">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="Message" rows="5" placeholder="Tell us about your goals..." required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+        <p class="fnote">No obligation, and no pressure to take every service.</p>
+      </form>
+
+      <aside class="cside rv">
+        <h2 class="csh">Rather not fill in a form?</h2>
+        <p class="csp">Message us directly. Whichever you use, the same two people read it.</p>
+        <a class="crow" href="https://wa.me/923312521753" target="_blank" rel="noopener">
+          <span class="cico"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+          <span class="cmeta"><b>WhatsApp</b><span>+92 331 2521753</span></span>
+        </a>
+        <a class="crow" href="tel:+923312521753">
+          <span class="cico"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+          <span class="cmeta"><b>Call</b><span>+92 331 2521753</span></span>
+        </a>
+        <a class="crow" href="mailto:hello@voicetovalue.site">
+          <span class="cico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+          <span class="cmeta"><b>Email</b><span>hello@voicetovalue.site</span></span>
+        </a>
+        <a class="crow" href="https://www.instagram.com/voice__to__value/" target="_blank" rel="noopener">
+          <span class="cico"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+          <span class="cmeta"><b>Instagram</b><span>@voice__to__value</span></span>
+        </a>
+        <a class="crow" href="https://www.facebook.com/profile.php?id=61588789653284" target="_blank" rel="noopener">
+          <span class="cico"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+          <span class="cmeta"><b>Facebook</b><span>Valency</span></span>
+        </a>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -765,7 +820,8 @@ body.locked{overflow:hidden}
           width="547" height="120" alt="Valency" loading="lazy" decoding="async"></div>
         <div class="ftag">Where Creativity Creates Value.</div>
         <div class="social">
-          <a href="https://www.instagram.com/voice__to__value/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/voice__to__value/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="mailto:hello@voicetovalue.site" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
           <a href="https://www.facebook.com/profile.php?id=61588789653284" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
         </div>
       </div>
@@ -791,8 +847,11 @@ body.locked{overflow:hidden}
       </nav>
 
       <div class="fcol">
-        <h3 class="fhead">Get In Touch</h3>
-        <span class="btn btn--ghost fbtn">Book a Call</span>
+        <h3 class="fhead">Get In Touch</h3>
+        <a href="mailto:hello@voicetovalue.site" class="fcontact"><i class="fa-solid fa-envelope" aria-hidden="true"></i>hello@voicetovalue.site</a>
+        <a href="https://wa.me/923312521753" target="_blank" rel="noopener" class="fcontact"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>+92 331 2521753</a>
+        <a href="tel:+923312521753" class="fcontact"><i class="fa-solid fa-phone" aria-hidden="true"></i>+92 331 2521753</a>
+        <a href="../contact/" class="btn btn--ghost fbtn">Book a Call</a>
       </div>
 
     </div>
